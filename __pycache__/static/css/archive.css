@@ -1,0 +1,95 @@
+.cover {
+  background: url("../img/session.jpeg") top center;
+  background-size : cover;
+  height : 100vh;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(6px);
+  opacity: 1;
+}
+
+.cover1  {
+  color : #fff;
+  text-align: center;
+  align-items: center!important;
+justify-content: center;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%);
+}
+.cover1 h1 {
+  margin: 0 0 10px 0;
+  font-size: 200%;
+  font-weight: 900;
+  line-height: 56px;
+  color: #fff;
+
+
+}
+.cover1 h2 {
+  color: #eee;
+
+  font-size: 450%;
+  font-family: 'Rowdies', cursive;
+}
+.title-word {
+animation: color-animation 4s linear infinite;
+}
+
+.title-word-1 {
+--color-1: #DA1212;
+--color-2: #11468F;
+--color-3: #041562;
+}
+
+.title-word-2 {
+--color-1: #EDF4F2;
+--color-2: #F5A31A;
+--color-3: #D32626;
+}
+
+.title-word-3 {
+--color-1: #2B2024;
+--color-2: #A80038;
+--color-3: #FD0054;
+}
+.title-word-4 {
+  --color-1: #7386D5;
+  --color-2: #A0B6F5;
+  --color-3: #FFEFEF;
+}
+.title-word-5 {
+  --color-1: #DBAD4A;
+  --color-2: #ACCFCB;
+  --color-3: #17494D;
+}
+
+
+
+@keyframes color-animation {
+0%    {color: var(--color-1)}
+32%   {color: var(--color-1)}
+33%   {color: var(--color-2)}
+65%   {color: var(--color-2)}
+66%   {color: var(--color-3)}
+99%   {color: var(--color-3)}
+100%  {color: var(--color-1)}
+}
+.title {
+font-family: "Montserrat", sans-serif;
+font-weight: 800;
+font-size: 8.5vw;
+text-transform: uppercase;
+}
+#header {
+background: rgba(0,0,0,1);
+}
+@media screen and (max-width:991px){
+  .cover1 h2 {
+    font-size: 250%;
+}
+}

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test Email</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+
+<div style="width:70%" class="container">
+
+
+    <center>
+   <h1 class="logo me-auto me-lg-0"><img src="{% static 'img/indi_logo.png'%} " alt="" class="img-fluid"></h1>
+    <h1>Welcome to Indican Friendship Club!</h1>
+    <h2>We congratulate you on being the member of ICFC</h2>
+    </center>
+<br><br>
+    <p>Thank you for registering in Indican Friendship Club.<br> As per the entered information, please find below login credentials to watch the event live.</p>
+    <br>
+    <p>Please note one Login Id and Password is for one user only.</p>
+
+    <table>
+  <tr>
+    <th>Username</th>
+    <th>Password</th>
+  </tr>
+  <tr>
+    <td>{{username}}</td>
+    <td>{{password}}</td>
+  </tr>
+
+</table>
+<br>
+  <p>We are looking forward to host you.</p>
+  <p><b>Regards,</b></p>
+  <p><b>Team ICFC</b></p>
+
+</div>
+  </body>
+</html>

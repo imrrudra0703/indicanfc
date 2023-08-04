@@ -1,0 +1,96 @@
+.cover {
+  background: url("../img/exhibition.jpeg") top center;
+  background-size : cover;
+}
+html, body{
+	height: 100%;
+	width: 100%;
+}
+body{
+	position: relative;
+}
+
+.img-container{
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+}
+
+.dot-pointer{
+	position: absolute;
+	z-index: 9;
+	/*left: 0;
+	top: 0;*/
+}
+.dot-pointer{
+	cursor: pointer;
+}
+
+/*Index page */
+#stall_1 {
+left: 28.5%;
+top: 20%;
+}
+
+#stall_2 {
+left: 10.2%;
+top: 32%;
+}
+
+#stall_3 {
+left: 51.2%;
+top: 30.5%;
+}
+#stall_4 {
+left: 34%;
+top: 46%;
+}
+#stall_5 {
+left: 81.1%;
+top: 44.5%;
+}
+#stall_6 {
+left: 66.9%;
+top: 66%;
+}
+
+	.top-div{
+		position: fixed;
+		top: 2%;
+		padding-left: 10%;
+		padding-right: 10%;
+		z-index: 10;
+		width: 100%;
+	}
+/*Index page */
+
+/*Other Pages*/
+	.video{
+		position: absolute;
+		left: 50%;
+		top: 46%;
+		/*transform: rotate(0.5deg);*/
+
+		/*border: 2px solid red;*/
+		background-color: white;
+		/*opacity: 0.5;*/
+		/*width: 177px;
+		height: 100px;*/
+		width: 13.5%;
+		height: 15%;
+	}
+	.video > a > iframe{
+		/*width: 163px;
+		height: 80px;*/
+		width: 100%;
+		height: 100%;
+	}
+/*Other Pages */
+
+@media only screen and (max-width: 700px) {
+	.dot-pointer > a > img{
+		height: 30px;
+		width: 30px;
+	}
+}

@@ -1,0 +1,55 @@
+{% extends "layouts.html"%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Login Account
+{% endblock %}
+{% block style %}
+
+<link href="{% static 'css/register.css'%}" rel="stylesheet">
+{% endblock %}
+
+    {% block content %}
+
+
+    <div class="global-container" style="background-size:cover">
+        <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">Login Account</h3>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+
+        {% endif %}
+            <div class="card-text">
+                <!--
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                <form method="post" >
+                    {% csrf_token %}
+                    <!-- to error: add class "has-danger" -->
+                    <div class="form-group">
+                        <label class="login-label" for="exampleInputEmail1">Username <i class="fas fa-user"></i></label>
+                        <input type="text" name="username" class="form-control form-control-sm login-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label class="login-label" for="exampleInputPassword1">Password <i class="fas fa-lock"></i></label>
+
+                        <input type="password" name="password" class="form-control form-control-sm login-input" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-login">Sign in</button>
+
+                    <div class="sign-up">
+                        To Watch Live <a href="{% url 'App_Login:register_attempt' %}">Create Account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    {% endblock %}

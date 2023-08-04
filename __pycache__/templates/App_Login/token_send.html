@@ -1,0 +1,26 @@
+{% extends "layouts.html"%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Token Send
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="{% static 'css/register.css'%}" rel="stylesheet">
+{% endblock %}
+
+    {% block content %}
+
+    <div class="global-container" style="background-size:cover">
+        <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">We have sent an email to you </h3>
+            <div class="card-text text-center card-text1" >
+                Please check your mail
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    {% endblock %}

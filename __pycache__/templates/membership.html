@@ -1,0 +1,152 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Membership
+{% endblock %}
+
+{% block content %}
+<div class="padding padding3">
+  <!-- ======= Specials Section ======= -->
+  <section id="specials" class="specials">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Join Us</h2>
+        <p>Membership Details</p>
+      </div>
+
+      <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-3 col-12">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Guest Membership</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Free Membership</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Membership Process</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Membership Criteria</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-8 mt-4 mt-lg-0">
+          <div class="tab-content">
+            <div class="tab-pane active show" id="tab-1">
+
+              <div class="details order-2 order-lg-1">
+                <h3>Can I attend events as a guest?</h3>
+                <p class="fst-italic"></p>
+                <p>You can attend some specific promotional events as a guest. You will need to register by creating an account. Once registered, an ID Password will be auto generated and sent on the registered email address to login.</p>
+              </div>
+
+
+            </div>
+            <div class="tab-pane" id="tab-2">
+
+                <div class="details order-2 order-lg-1">
+                  <h3>What is the duration of free trial?</h3>
+                  <p class="fst-italic"></p>
+                  <p>We offer you a free membership to understand the benefits and environment of ICFC. You can access all the events and the services provided by us.</p>
+                </div>
+
+
+            </div>
+            <div class="tab-pane" id="tab-3">
+
+                <div class="details order-2 order-lg-1">
+                  <h3>How to be a member of ICFC?</h3>
+                  <p class="fst-italic"></p>
+                  <p>You can register on our website which is www.indicanfc.com through your email id which will generate a unique membership id for you. </p>
+                </div>
+
+
+            </div>
+
+            <div class="tab-pane" id="tab-5">
+
+                <div class="details order-2 order-lg-1">
+                  <h3>Who can join?</h3>
+                  <p class="fst-italic"></p>
+                  <p>People from all over the world can be a member of ICFC. We have various services for the people in Canada and India but it is open for everyone.</p>
+                </div>
+
+
+            </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-4 mt-4 mt-lg-0">
+            <div class="text-center order-1 order-lg-2">
+              <img src="{% static 'img/join now.jpg'%} " alt="" class="img-fluid">
+            </div>
+          </div>
+
+
+      </div>
+
+    </div>
+  </section><!-- End Specials Section -->
+
+  <!-- ======= Events Section ======= -->
+  <section id="events" class="events">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Events</h2>
+        <p>Upcoming Events</p>
+      </div>
+      {% for message in messages %}
+      <div class="alert alert-info" style="text-align:center;">
+          {{ message }}
+      </div>
+      {% endfor %}
+
+
+
+
+      <div  class="row">
+        <div  class="col-lg-6">
+
+          <img src="{% static 'img/stay.jpeg'%} " class="img-fluid" alt="" width="90%">
+        </div>
+        <div  class="col-lg-6 pt-4 pt-lg-0 content">
+          <h3><b>Stay Tuned</b></h3>
+          <div class="price">
+            <p><span></span></p>
+          </div>
+          <p class="fst-italic">
+            We request you to be just a little patient as we are going to update the details about our upcoming event soon. To get regular updates about our future events, register on our website.
+          </p>
+
+  <br>
+          <p>Check the archive section to know more about our events. The archive section contains the details and information related to past events. </p>
+
+            <br>
+          <center>
+            <div class="col-6" style="padding-right:0;">
+              <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Join ICFC</button></a></div>
+
+            </div>
+
+                      </div>
+
+
+                    </div>
+
+
+
+              </div>
+          
+
+
+
+
+  </section><!-- End Events Section -->
+
+</div>
+
+{% endblock %}

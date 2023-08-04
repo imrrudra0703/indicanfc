@@ -1,0 +1,49 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Service Provider
+{% endblock %}
+{% block style %}
+
+<link href="{% static 'css/service.css'%}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+
+<section id="service">
+  <div class="container" >
+
+  <div style="padding-top:3rem" class="padding">
+  <div class="section-title">
+    <h2>Event Management</h2>
+    <p>Event Management</p>
+  </div>
+    <div class="row">
+        <div style="padding: 0;" class="col-md-3 col-sm-6 col-6">
+          <div class="card m-2">
+            <img style="background-color: #000;" src="{% static 'img/service_provider/vraksh2.png'%}" alt="" class="card-img-top img-details" >
+            <div class="card-footer">
+              <h4 class="text-muted">VRAKSH</h4>
+              <!-- <p class="text-muted">Shweta Singh is an astrologer who has more than 9 years of experience in the field. She has worked in news channels for her expertise. She also deals in gemstones. Avail her services by contacting her directly.</p> -->
+            </div>
+          </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+</section>
+
+
+
+</div>
+{% endblock %}
+{% block js %}
+
+{% endblock %}

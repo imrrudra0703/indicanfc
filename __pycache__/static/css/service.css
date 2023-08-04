@@ -1,0 +1,25 @@
+#service{
+  width: 100%;
+background-color: #121212;
+height: 100vh;
+}
+.card{
+  height: 95%;
+  border: none;
+  border-radius: 1rem;
+
+}
+/* .card .img-details{
+  border-radius: 1rem;
+} */
+.card-footer{
+  text-align: center;
+
+}
+.card-footer h4{
+  color:#000 !important;
+  font-family: 'Abril Fatface', cursive;
+}
+.card-footer p{
+  color:#121212 !important;
+}

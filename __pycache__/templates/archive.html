@@ -1,0 +1,429 @@
+{% load static %}
+<html>
+<head>
+	<title>Session Archive</title>
+	<!-- ViewPort -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link href="{% static 'img/logo6.png'%}" rel="icon">
+  <link href="{% static 'img/logo6.png'%} " rel="apple-touch-icon">
+
+
+  	<!-- JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- POPPER_JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style1.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css'%}">
+	<!-- Local CSS -->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+
+	<style>
+  .padding{
+    padding:7% 4%;
+  }
+  h1{
+    margin-top: 3%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 350%;
+    margin-bottom: 2%;
+  }
+  .card{
+    background-color:rgba(240, 242, 245, 1);
+    height: 180px;
+    width: 100%;
+  }
+  .card-product:after{
+    content: "";
+    display: table;
+    clear: both;
+    visibility: hidden;
+  }
+  .card-product .price-new, .card-product .price{
+
+    margin-right: 5px;
+  }
+  .card-product .img-wrap{
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 150px;
+    text-align: center;
+  	display: table-cell;
+  vertical-align: middle;
+
+  }
+  .card-product .img-wrap img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    background-color:rgba(240, 242, 245, 1);
+    width:100%;
+
+  }
+  .card-prduct .info-wrap{
+    overflow: hidden;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    background-color:rgba(240, 242, 245, 1);
+
+  }
+  .card-product .action-wrap{
+    padding-top: 4px;
+    margin-top: 4px;
+  }
+  .card-prduct .bottom-wrap{
+    padding: 15px;
+    border-top: 1px solid #eee;
+  }
+  .card-prduct .title{
+    margin-top: 0px;
+    text-align: center;
+    font-family: 'Hind Madurai', sans-serif;
+    font-size:20px;
+  }
+  .padding{
+  	padding-top: 5%;
+  }
+
+
+  .card {
+    width: 90%;
+    max-width: 450px;
+    background-color: #2B2B2B;
+    padding: 0 2rem 1.5rem 2rem;
+    border-radius: 10px;
+    transition: box-shadow .3s linear;
+  	margin-bottom: 15%;
+    margin-top:10%;
+  }
+  .card:hover {
+    box-shadow: 0 0 35px rgba(0, 0, 0, .3);
+  }
+
+  .card .card-img {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 0, 0, .3);
+    transform: translateY(-15%);
+    transition: box-shadow .3s linear;
+  	background-color: rgba(178, 177, 185, 0.6);
+  }
+  .card:hover .card-img {
+    box-shadow: none;
+  }
+  .card .card-img img {
+    width: 100%;
+    display: block;
+  }
+
+  .card .card-content {
+    text-align: center;
+  	background-color: #121212;
+  	border-radius: 1em;
+  }
+  .card .card-content .big-title {
+    color: white;
+    font-size: 1.3rem;
+  	font-family: 'Lobster', cursive;
+  }
+  .card .card-content .big-title a{
+  	font-family: 'Permanent Marker', cursive;
+  }
+  .card .card-content .medium-title {
+    color: #999;
+    font-size: .85rem;
+    margin-top: .3rem;
+  }
+  iframe {
+border: 0;
+position: relative;
+z-index: 99999999999999;
+width: 90%;
+height: 180px;
+}
+  /* Flower 1 */
+  .flower1 {
+  display: inline-block;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  align-items: center!important;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  }
+
+          .flower1 span {
+              position: absolute;
+              width: 150px;
+              height: 100%;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%) rotate(-90deg);
+              content: '';
+              transition: 1.6s ease-in-out;
+              transform-origin: bottom center;
+              background: #000;
+              border-radius: 100% 100%;
+              background: rgba(255, 255, 255, .15);
+          }
+      @media only screen and (max-width: 900px) {
+        .card{
+          height:140px
+        }
+        iframe{
+          height:140px
+        }
+      }
+    @media only screen and (min-width: 1900px) {
+        .col-md-4{
+          flex: 0 0 25%;
+max-width: 25%;
+        }
+    }
+
+	</style>
+	<script type="text/javascript">
+$(document).ready(function() {
+          var n = $(".flower1 span").length;
+          var val = -90;
+          var ans = 20;
+          $(".flower1 span").not(":first-child").click(function() {
+              $(".flower1 span").css({
+                  "transform": "translate(-50%, -50%) rotate(" + 0 + "deg)"
+              });
+              $(".flower1 span").not(":first-child").fadeOut(450);
+
+          });
+          $(".flower1 span").eq(0).click(function() {
+              $(".flower1 span").fadeIn(500);
+              for (i = 0; i < n; i++) {
+                  var an2 = ans * i - 90;
+                  $(".flower1 span").eq(i).css({
+                      "transform": "translate(-50%, -50%) rotate(" + an2 + "deg)"
+                  });
+              }
+          });
+          for (i = 0; i < n; i++) {
+              var an2 = ans * i - 90;
+              $(".flower1 span").eq(i).css({
+                  "transform": "translate(-50%, -50%) rotate(" + an2 + "deg)"
+              })
+          }
+      });
+</script>
+
+</head>
+<body>
+
+	<div class="cursor"></div>
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-flex align-items-center fixed-top">
+	<div class="container d-flex justify-content-center justify-content-md-between">
+
+
+
+
+	</div>
+</div>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-cente">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+    <h1 class="logo me-auto me-lg-0"><img src="{% static 'img/indi_logo.png'%} " alt="" class="img-fluid"></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'lobby' %}">Lobby</a></li>
+        <li class="dropdown"><a href="#"><span>Exhibition</span> <i class="fa fa-arrow-circle-down"></i></a>
+          <ul>
+            <li><a href="{% url 'add_exhibition'%}">Add Exhibition</a></li>
+            <li><a href="{% url 'view_exhibition'%}">View Exhibition</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link scrollto" href="{% url 'auditorium' %}">Auditorium</a></li>
+
+
+
+        <li><a class="nav-link scrollto" href="{% url 'selfie' %}">Selfie Booth</a></li>
+        <li class="dropdown"><a href="#"><span>Radio ICFC</span> <i class="fa fa-arrow-circle-down"></i></a>
+          <ul>
+            <li><a href="{% url 'icfc_radio' %}">Latest Radio ICFC</a></li>
+            <li><a href="{% url 'previous_radio_icfc' %}">Previous Radio ICFC</a></li>
+
+          </ul>
+        </li>
+
+        <li class="dropdown"><a href="#"><span>More</span> <i class="fa fa-arrow-circle-down"></i></a>
+          <ul>
+            <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'archive'%}">Session Archive</a></li>
+            <li><a href="{% url 'virtual'%}">Virtual Tour</a></li>
+            <li><a href="{% url 'sponsors'%}">Sponsors</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'clubhouse' %}">Clubhouse</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'details' %}">Card Exchange</a></li>
+
+
+          </ul>
+        </li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'App_Login:logout' %}">Logout</a></li>
+
+
+        {% else %}
+
+        <li><a href="{% url 'App_Login:login' %}">Login</a></li>
+        {% endif %}
+
+      </ul>
+
+    </nav><!-- .navbar -->
+
+
+  </div>
+</header><!-- End Header -->
+
+	<!-- Counter Images --><div class="padding">
+
+
+  <h1>Session Archive</h1>
+  <div class="flower1">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+  <div class="row">
+      <div class="col-md-4 col-6">
+      <figure class="card card-product">
+        <center><div class="img-wrap card-img" >
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/rV6Ao6WsS8Y?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div></center>
+        <figcaption class="info-wrap card-content">
+          <h6 class="title big-title">Baat Cheet</h6>
+
+        </figcaption>
+      <figure>
+    </div>
+      <div class="col-md-4 col-6">
+      <figure class="card card-product">
+        <center><div class="img-wrap card-img" >
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/d-ii1H13QtU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div></center>
+        <figcaption class="info-wrap card-content">
+          <h6 class="title big-title">Musical Frenzy Evening</h6>
+
+        </figcaption>
+      <figure>
+    </div>
+    <div class="col-md-4 col-6">
+      <figure class="card card-product">
+        <center><div class="img-wrap card-img" >
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/gy2RZSniVZc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div></center>
+        <figcaption class="info-wrap card-content">
+          <h6 class="title big-title">Extravaganza</h6>
+
+        </figcaption>
+      <figure>
+    </div>
+    <div class="col-md-4 col-6">
+      <figure class="card card-product">
+        <center><div class="img-wrap card-img" >
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/dQnIernuhps?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div></center>
+        <figcaption class="info-wrap card-content">
+          <h6 class="title big-title">Astro Talk 2</h6>
+
+        </figcaption>
+      <figure>
+    </div>
+    <div class="col-md-4 col-6">
+      <figure class="card card-product">
+        <center><div class="img-wrap card-img" >
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/IlgmAkhwL28?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div></center>
+        <figcaption class="info-wrap card-content">
+          <h6 class="title big-title">Astro Talk</h6>
+
+        </figcaption>
+      <figure>
+    </div>
+    <div class="col-md-4 col-6">
+      <figure class="card card-product">
+        <center><div class="img-wrap card-img" >
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/ipqqQpN7D3k?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div></center>
+        <figcaption class="info-wrap card-content">
+          <h6 class="title big-title">Gala Evening</h6>
+
+        </figcaption>
+      <figure>
+    </div>
+    <div class="col-md-4 col-6">
+      <figure class="card card-product">
+        <center><div class="img-wrap card-img" >
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/pJik9dtOa_A?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div></center>
+        <figcaption class="info-wrap card-content">
+          <h6 class="title big-title">Launch Event</h6>
+
+        </figcaption>
+      <figure>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+</div>
+</body>
+
+</html>
+<script src="{% static 'js/rotate.js'%}" type="text/javascript"></script>
+<script src="{% static 'js/main1.js'%}" type="text/javascript"></script>
+
+
+
+
+ <script>
+
+
+
+
+</script>
+
+</body>
+
+</html>

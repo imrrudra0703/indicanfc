@@ -1,0 +1,292 @@
+{% extends 'layouts1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Clubhouse
+{% endblock %}
+{% block style %}
+
+<link href="{% static 'css/clubhouse.css'%}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+
+{% endblock %}
+{% block content %}
+<!-- <section id="hero1" class="d-flex align-items-center">
+
+  <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1>Welcome to <span>INDICAN FRIENDSHIP CLUB</span></h1>
+        <h2></h2>
+
+        <div class="btns">
+          <a href="#menu" class="btn-menu animated fadeInUp scrollto">Join Us</a>
+          <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Watch Live</a>
+        </div>
+      </div>
+      <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
+        <a href="https://www.youtube.com/watch?v=u6BOC7CDUTQ" class="glightbox play-btn"></a>
+      </div>
+
+    </div>
+  </div>
+</section> -->
+
+<main>
+            <section id="hero-image">
+                <div class="hero-marketing-text">
+                    <h1>The Best <span>Games</span> Out There</h1>
+                    <h5>Here at Indican GameWarrior you can play games on a PC and a smartphone.  We allow you to play the games Ninja, Snake, Tic-Tac-Toe, Planet Defense, and more!  Some of which cost money ($15.99 at the least), and some are free, like Ninja and Snake...</h5>
+                    <a href="#recent-games"><button >Play Now</button></a>
+                </div>
+            </section>
+
+            <section id="recent-games">
+                <h1>Recent Games</h1>
+                <div class="flex">
+                    <div class="box">
+                        <span class="badge new">New</span>
+                        <img src="{% static 'img/clubhouse/ninja1.jpg'%}" />
+                        <div class="box-lower-section text-center">
+                            <h4>Ninja </h4>
+                            <p>Want fun? You will be a complete ninja with Ninja. Let's try to get the highest score by cutting the cubes.</p>
+                            <a href="{% url 'ninja'%}"><button class="play">Play Now</button></a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                      <span class="badge new">New</span>
+                        <img src="{% static 'img/clubhouse/snake1.png'%}" />
+                        <div class="box-lower-section text-center">
+                            <h4>Snake</h4>
+                            <p>Snake is a video game genre where the player maneuvers a growing line that becomes a primary obstacle to itself.</p>
+                            <a href="{% url 'snake'%}"><button class="play">Play Now</button></a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <span class="badge new">New</span>
+                        <img src="{% static 'img/clubhouse/tic-tac-toe1.png'%}" />
+                        <div class="box-lower-section text-center">
+                            <h4>Tic-Tac-Toe</h4>
+                            <p>Tic-Tac-Toe is a two-player game in which the players fill up nine empty rectangles in a table. Player 1[X] Player 2[O]</p>
+                            <a href="{% url 'tic-tac-toe'%}"><button class="play">Play Now</button></a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <span class="badge new">New</span>
+                        <img src="{% static 'img/clubhouse/planet-defense1.jpg'%}" />
+                        <div class="box-lower-section text-center">
+                            <h4>Planet Defense</h4>
+                            <p>Protect the planet! Destroy the asteroids to save your people! It's my first canvas game, enjoy it!  </p>
+                            <a href="{% url 'planet_defense'%}"><button class="play">Play Now</button></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="latest-news">
+                <div class="flex">
+                    <h5>Latest News</h5>
+                    <div id="latest-news-container">
+                        <div class="latest-news-item">
+                            <span class="badge new">New!</span>
+                            <span class="latest-news-text">We are making our way to consoles!  We will only support PS3s, PS4s, Switchs, Switch Lites, and PCs.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="game-types-boxes">
+                <div class="flex">
+                    <div class="box new">
+                        <div class="shade"></div>
+                        <span class="badge racing">15$</span>
+                        <div class="contents">
+                            <h4>Overwatch</h4>
+                            <p>This app is currently unavailable.</p>
+                            <a href="#" class="comments">3 Comments</a>
+                        </div>
+                    </div>
+
+                    <div class="box strategy">
+                        <div class="shade"></div>
+                        <span class="badge racing">18$</span>
+                        <div class="contents">
+                            <h4>Assasin's Creed</h4>
+                            <p>Recommended for kids 17+.</p>
+                            <a href="#" class="comments">3 Comments</a>
+                        </div>
+                    </div>
+
+                    <div class="box rpg">
+                        <div class="shade"></div>
+                        <span class="badge racing">25$</span>
+                        <div class="contents">
+                            <h4>Fortnite</h4>
+                            <p>A battling game.  Violence.  Uses guns.</p>
+                            <a href="#" class="comments">3 Comments</a>
+                        </div>
+                    </div>
+
+                    <div class="box racing">
+                        <div class="shade"></div>
+                        <span class="badge racing">17$</span>
+                        <div class="contents">
+                            <h4>Asphalt 9 Legends</h4>
+                            <p>One of the best racing games of 2020!  By GameLoft.</p>
+                            <a href="#" class="comments">3 Comments</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section id="recent-reviews">
+                <h1>Recent Reviews</h1>
+                <div class="flex">
+                    <div class="box">
+                        <span class="rating-badge gold">3.3</span>
+                        <div class="recent-reviews-image">
+                            <img src="{% static 'img/clubhouse/recent_reviews_1.jpg'%}" />
+                        </div>
+                        <div>
+                            <h4>Assasin's Creed</h4>
+                            <p>Play now the first ACTION RPG game of the acclaimed ASSASSIN’S CREED Franchise.
+Explore the ITALIAN RENAISSANCE through the eyes of your OWN ASSASSIN, complete dozens of missions and unravel the epic mystery of The Crows.</p>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <span class="rating-badge purple">4.0</span>
+                        <div class="recent-reviews-image">
+                            <img src="{% static 'img/clubhouse/recent_reviews_2.jpg'%}" />
+                        </div>
+                        <div>
+                            <h4>Doom</h4>
+                            <p>Celebrate DOOM’s 25th anniversary with the re-release of the original DOOM (1993), including the expansion, Thy Flesh Consumed, is now available on Android devices...</p>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <span class="rating-badge green">3.1</span>
+                        <div class="recent-reviews-image">
+                            <img src="{% static 'img/clubhouse/recent_reviews_3.jpg'%}" />
+                        </div>
+                        <div>
+                            <h4>Overwatch</h4>
+                            <p>This app is unavailable.</p>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <span class="rating-badge violet">4.3</span>
+                        <div class="recent-reviews-image">
+                            <img src="{% static 'img/clubhouse/recent_reviews_4.jpg'%}" />
+                        </div>
+                        <div>
+                            <h4>GTA</h4>
+                            <p>Five years ago, Carl Johnson escaped from the pressures of life in Los Santos, San Andreas, a city tearing itself apart with gang trouble, drugs and corruption. Where filmstars and millionaires do their best to avoid the dealers and gangbangers...</p>
+                        </div>
+                    </div>
+                </div>
+                 <center>
+                        <h5 id="goTo">There's much more games in the <a href="">Games</a> section!</h5>
+                </center>
+            </section>
+                    <section id="posts-comments">
+                <div class="flex">
+                    <div class="game-warrior">
+                        <img src="{% static 'img/clubhouse/footer_logo.png'%}" />
+                        <p>This part is for comments and the latest posts.</p>
+                        <img class="footer-graphic" src="{% static 'img/clubhouse/sword_lady_footer.png'%}" />
+                    </div>
+
+                    <div class="posts-comments-box">
+                        <h3>Latest Posts</h3>
+                        <div class="post-item">
+                            <img src="{% static 'img/clubhouse/latest_posts_1.jpg'%}" />
+                            <div>
+                                <h5>Jan 01, 2022</h5>
+                                <p>Battlegrounds Mobile India launched: Now available for download as a free-to-play on Google Play Store.</p>
+                                <small>By: Admin</small>
+                            </div>
+                        </div>
+
+                        <div class="post-item">
+                            <img src="{% static 'img/clubhouse/latest_posts_2.jpg'%}" />
+                            <div>
+                                <h5>Jan 09, 2022</h5>
+                                <p>China urges gaming giants Tencent, NetEase to end focus on profits, cut 'effeminate' gender imagery.</p>
+                                <small>By: Admin</small>
+                            </div>
+                        </div>
+
+                        <div class="post-item">
+                            <img src="{% static 'img/clubhouse/latest_posts_3.jpg'%}" />
+                            <div>
+                                <h5>Jan 11, 2022</h5>
+                                <p>Epic Games to pull Fortnite out of China after government crackdown on tech and gaming firms.</p>
+                                <small>By: Admin</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="posts-comments-box">
+                        <h3>Top Comments</h3>
+                        <div class="comments-item">
+                            <img src="{% static 'img/clubhouse/top_comments_1.jpg'%}" />
+                            <div>
+                                <p><span class="author">SuperCharr</span> <span></span> As a 30 year old life long Nintendo fan who hasn't played Kirby since Superstars on SNES, this game looks VERY enticing. Hope the game's final quality is worthy of our pink pal's name!</p>
+                                <h5>Jan 03, 2022</h5>
+                            </div>
+                        </div>
+
+                        <div class="comments-item">
+                            <img src="{% static 'img/clubhouse/top_comments_2.jpg'%}" />
+                            <div>
+                                <p><span class="author">The Stardust Warrior</span> <span></span> Have it on Switch, and it's fantastic.</p>
+                                <h5>Jan 07, 2022</h5>
+                            </div>
+                        </div>
+
+                        <div class="comments-item">
+                            <img src="{% static 'img/clubhouse/top_comments_3.jpg'%}" />
+                            <div>
+                                <p><span class="author">ZCore</span> <span></span> This is the greatest game of all time.</p>
+                                <h5>Jan 18, 2022</h5>
+                            </div>
+                        </div>
+
+                        <div class="comments-item">
+                            <img src="{% static 'img/clubhouse/top_comments_4.jpg'%} " />
+                            <div>
+                                <p><span class="author">Grumble</span> <span>on</span> Spring never sounded so terrifying.</p>
+                                <h5>Jan 21, 2022</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+
+        <script>
+            document.getElementById('nav-toggle').addEventListener('click', function () {
+                let navMenu = document.getElementById('nav-menu-container');
+                navMenu.style.display = navMenu.offsetParent === null ? 'block' : 'none';
+            });
+
+        </script>
+
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}
+<!-- https://codemyui.com/tag/animation/ -->

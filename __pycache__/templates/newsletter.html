@@ -1,0 +1,41 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Newsletter
+{% endblock %}
+
+{% block content %}
+<div class="padding padding2">
+  <div class="container">
+    <center>
+
+      <div class="download">
+        <h1>MONTHLY NEWSLETTER (MAY 2022)</h1><a href="{% static 'img/ICFC_Newsletter1.pdf'%}" download><button type="button" class="btn btn-outline-warning download1">Download <i class="fas fa-download"></i></button></a>
+      </div>
+    <embed class="pdf"  type="application/pdf" src="{% static 'img/ICFC_Newsletter1.pdf'%}" width="50%" height="600"><br><hr>
+      <div class="download">
+        <h1>MONTHLY NEWSLETTER (JUNE 2022)</h1><a href="{% static 'img/june.pdf'%}" download><button type="button" class="btn btn-outline-warning download1">Download <i class="fas fa-download"></i></button></a>
+      </div>
+    <embed class="pdf"  type="application/pdf" src="{% static 'img/june.pdf'%}" width="50%" height="600"><br><hr>
+      <div class="download">
+        <h1>MONTHLY NEWSLETTER (JULY 2022)</h1><a href="{% static 'img/july.pdf'%}" download><button type="button" class="btn btn-outline-warning download1">Download <i class="fas fa-download"></i></button></a>
+      </div>
+    <embed class="pdf"  type="application/pdf" src="{% static 'img/july.pdf'%}" width="50%" height="600"><br><hr>
+    
+    <div class="download">
+        <h1>MONTHLY NEWSLETTER (AUGUST 2022)</h1><a href="{% static 'img/august.pdf'%}" download><button type="button" class="btn btn-outline-warning download1">Download <i class="fas fa-download"></i></button></a>
+      </div>
+    <embed class="pdf"  type="application/pdf" src="{% static 'img/august.pdf'%}" width="50%" height="600"><br><hr>
+    <div class="download">
+        <h1>MONTHLY NEWSLETTER (SEPTEMBER 2022)</h1><a href="{% static 'img/sept.pdf'%}" download><button type="button" class="btn btn-outline-warning download1">Download <i class="fas fa-download"></i></button></a>
+      </div>
+    <embed class="pdf"  type="application/pdf" src="{% static 'img/sept.pdf'%}" width="50%" height="600"><br><hr>
+    <div class="download">
+        <h1>MONTHLY NEWSLETTER (OCTOBER 2022)</h1><a href="{% static 'img/october.pdf'%}" download><button type="button" class="btn btn-outline-warning download1">Download <i class="fas fa-download"></i></button></a>
+      </div>
+    <embed class="pdf"  type="application/pdf" src="{% static 'img/october.pdf'%}" width="50%" height="600">
+  </div>
+  
+</div>
+{% endblock %}

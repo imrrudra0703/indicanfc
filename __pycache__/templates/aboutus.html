@@ -1,0 +1,219 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+About Us
+{% endblock %}
+
+{% block content %}
+<div class="padding3">
+
+
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>About</h2>
+        <p>About Us</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+          <div class="about-img">
+            <img src="{% static 'img/aboutus-1.jpg'%}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+          <h3></h3>
+          <p class="fst-italic">
+            <b>INDICAN Friendship Club</b>  is a virtual platform for the Indians and Canadians to connect and build healthy relationships. It is a membership based club, wherein you can subscribe on our website, engage in our weekly membership activities to keep the fun alive and also avail the services from our onboard associates in both the countries. Keeping the connection between these two countries in mind, this club allows its members to interact, celebrate, and trade virtually.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> ICFC is a platform for the journey of making new friends and relationships to making personal and professional ties with them. </li>
+            <li><i class="bi bi-check-circle"></i> Participate in amusing activities to interact with people from different cultures having different thoughts and lifestyles. </li>
+            <li><i class="bi bi-check-circle"></i> This platform is your one-stop destination for all the services you may need while traveling across India and Canada. </li>
+          </ul>
+          <p>
+            This club will not only strengthen the relationship between the citizens of India and Canada but also provides you with a unique opportunity to explore the countries with our help. It is a club based on membership. Subscribe to our channel to avail our services.
+ Click here to <a href="{% static 'img/ICFC_Brochure.pdf'%}" download> KNOW MORE</a>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+  <div class="container container1">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card1">
+          <h1 class="title1">OUR AIM</h1>
+          <p class="subtitle1">India and Canada have a long history together. We aim to revitalize it through our club. The activities engage people from both countries and allows them to build relationships. It also gives you an opportunity to explore across countries. This club delivers all the services you might need while exploring. Being a member of this club will cut the extra stress off your arrangements. </p>
+
+        </div>
+        <br><br><br>
+      </div>
+      <div class="col-md-6">
+        <div class="card1">
+          <h1 class="title1">OUR VISION</h1>
+          <p class="subtitle1">We aspire to connect more than 10,000 people from India and Canada through Indican Friendship Club. Our services are a click away for you. This club will help you to spend less time worrying and more time on planning. You will find everything in one club that helps you explore, connect and make relationships across the two countries. </p>
+
+        </div>
+      </div>
+
+
+    </div>
+
+      <div class="blob"></div>
+    </div>
+  <!-- ======= Why Us Section ======= -->
+  <section id="why-us" class="why-us">
+    <div class="container" >
+
+      <div class="section-title">
+        <h2>Why Us</h2>
+        <p>Why Choose ICFC</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4">
+          <div class="box" >
+            <span>01</span>
+            <h4>Build Connections</h4>
+            <p>You know what makes you feel like home? Building connections. At ICFC, we give you the opportunity to meet the coolest people so that you can feel at home</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="box" >
+            <span>02</span>
+            <h4>Entertainment</h4>
+            <p>ICFC makes sure to keep you engaged with their fun-filled activities every week. Be a part of these fun activities and make your weekdays merrier than ever.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="box" >
+            <span>03</span>
+            <h4> Easy accessibility</h4>
+            <p>We are all tired of searching for services and then having to run errands when we should be relaxing. Make life simpler for yourself by using ICFC's services from the comfort.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Why Us Section -->
+  <!-- ======= Chefs Section ======= -->
+  <section id="chefs" class="chefs">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Team</h2>
+        <p>Our Team</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="member" data-aos="zoom-in" data-aos-delay="100">
+            <img src="{% static 'img/team/surender-sir.jpeg'%} " class="img-fluid" alt="">
+            <div class="member-info">
+              <div class="member-info-content">
+                <h4> Mr. Surender Gupta</h4>
+                <span>President</span>
+              </div>
+              <!-- <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="member" data-aos="zoom-in" data-aos-delay="200">
+            <img src="{% static 'img/team/anmol-sir.jpeg'%} " class="img-fluid" alt="">
+            <div class="member-info">
+              <div class="member-info-content">
+                <h4>Mr. Anmol Chawla</h4>
+                <span>Secretary</span>
+              </div>
+              <!-- <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="member" data-aos="zoom-in" data-aos-delay="300">
+            <img src="{% static 'img/team/sushil-sir.jpeg'%}" class="img-fluid" alt="">
+            <div class="member-info">
+              <div class="member-info-content">
+                <h4>Mr. Sushil Kumar</h4>
+                <span>Vice President</span>
+              </div>
+              <!-- <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="member" data-aos="zoom-in" data-aos-delay="300">
+            <img src="{% static 'img/team/radhika.jpeg'%}" class="img-fluid" alt="">
+            <div class="member-info">
+              <div class="member-info-content">
+                <h4>Ms. Radhika Khanna</h4>
+                <span>Treasurer</span>
+              </div>
+              <!-- <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+
+        
+
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="member" data-aos="zoom-in" data-aos-delay="300">
+            <img src="{% static 'img/team/kabir.jpeg'%}" class="img-fluid" alt="">
+            <div class="member-info">
+              <div class="member-info-content">
+                <h4>Mr. Kabir Bansal</h4>
+                <span>Advisor</span>
+              </div>
+              <!-- <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Chefs Section -->
+
+</div>
+
+{% endblock %}

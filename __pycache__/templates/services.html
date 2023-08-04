@@ -1,0 +1,192 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Services
+{% endblock %}
+
+{% block style %}
+<style media="screen">
+  .why-us .box {
+margin-top: 2rem;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div style="padding-top: 3rem;" class="padding3">
+  <section id="why-us" class="why-us">
+    <div class="container" >
+
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Services</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4">
+          <a href="{% url 'visa_support'%}"><div class="box" >
+            <span>01</span>
+            <h4>Visa Support</h4>
+            <p>We check your documents, fill out your visa application and provide you the instructions for the next steps.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'ielts_trainer'%}"><div class="box" >
+            <span>02</span>
+            <h4>IELTS Trainer</h4>
+            <p>Prepare for reading, writing, listening and speaking under the guidance of IELTS trainers.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 ">
+          <a href="{% url 'digital_marketing'%}"><div class="box" >
+            <span>03</span>
+            <h4> Digital Marketing</h4>
+            <p>Market your brands and products by creating a presence on digital platforms. </p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 ">
+          <a href="{% url 'immigration_consultant'%}"><div class="box" >
+            <span>04</span>
+            <h4> Immigration Consultant</h4>
+            <p> We offer visa service, study visa, investor visa, and immigration to various countries.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'corporate_trainer'%}"><div class="box" >
+            <span>05</span>
+            <h4>Corporate Trainer</h4>
+            <p>Specialized employee training programs for different functions and roles, designed to address specific learning objectives and delivered by top trainers.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 ">
+          <a href="{% url 'diamond_jeweller'%}"><div class="box" >
+            <span>06</span>
+            <h4> Diamond Jeweller</h4>
+            <p>Find the jewelry of your choice by interacting with the jewellers on our website. Buy traditional Indian gold jewelry, contemporary diamond jewelry or stunning polkis. </p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 ">
+          <a href="{% url 'investment_banker'%}"><div class="box" >
+            <span>07</span>
+            <h4>  Investment Banker</h4>
+            <p>We offer a range of services including underwriting, sales, equity research, asset management, etc.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'event_management'%}"><div class="box" >
+            <span>08</span>
+            <h4>Event Management</h4>
+            <p>Start-to-end event management for all types of social and corporate events. </p>
+          </div></a>
+        </div>
+
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'residency_support'%}"><div class="box" >
+            <span>09</span>
+            <h4> Residency Support</h4>
+            <p>Offering facilities to our services that they can avail sitting at home. </p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4">
+          <a href="{% url 'business_investment'%}"><div class="box" >
+            <span>10</span>
+            <h4>Business Investment</h4>
+            <p>Connect with people overseas to make business investments. </p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'personal_branding'%}"><div class="box" >
+            <span>11</span>
+            <h4>Personal Branding</h4>
+            <p>Personal Branding for Entrepreneurs & Professionals who want to become an Authority Figure in their Field</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'travel_and_tourism'%}"><div class="box" >
+            <span>12</span>
+            <h4> Travel and Tourism</h4>
+            <p>Providing services of hotels, restaurants, travel agencies and tour operators services.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4">
+          <a href="{% url 'matrimony'%}"><div class="box" >
+            <span>13</span>
+            <h4>Matrimony</h4>
+            <p>Meet your partner to spend the rest of your life with. We have a history of making millions of happy marriages happen and continue to make it happen through ICFC. </p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'career_counselling'%}"><div class="box" >
+            <span>14</span>
+            <h4>Career Counselling</h4>
+            <p>Choose your career under the guidance of a professional consultant.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'medical_consultancy'%}"><div class="box" >
+            <span>15</span>
+            <h4>Medical Consultancy</h4>
+            <p>Successful in providing medical services to people all over the world.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'banking_support'%}"><div class="box" >
+            <span>16</span>
+            <h4> Banking/Financial Support</h4>
+            <p>It covers the functioning of Banks, Financial Institutions, Insurance Companies and the National Pension System</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'chartered_accountant'%}"><div class="box" >
+            <span>17</span>
+            <h4>Chartered Accountant</h4>
+            <p>Handling the client's finances, carries out financial accounting, auditing, taxation, financial advisory, etc.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'real_estate_guidance'%}"><div class="box" >
+            <span>18</span>
+            <h4>Real Estate Guidance</h4>
+            <p>Our real estate agents offer you advice for sale and purchase without any personal bias.</p>
+          </div></a>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <a href="{% url 'numerology'%}"><div class="box" >
+            <span>19</span>
+            <h4> Numerology/Astrology</h4>
+            <p>Our astrologer offers advice on the services of online Kundli matching, horoscope predictions, daily horoscope, weekly horoscope, numerology and tarot reading. </p>
+          </div></a>
+        </div>
+
+
+
+
+      </div>
+
+    </div>
+  </section>
+
+
+</div>
+
+{% endblock %}

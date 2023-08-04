@@ -1,0 +1,30 @@
+@media (max-width: 991px){
+  .navbar{
+    padding: 0 8%;
+  }
+.navbar ul {
+display: flex;
+}
+#header .logo {
+padding-right: 2%;
+padding-left: 3%;
+}
+.navbar a, .navbar a:focus {
+padding: 15px 0px 10px 10px;
+font-size: 0.4em !important;
+}
+#header .logo img {
+max-height: 2.5em;
+}
+#header .logo {
+font-size: 1.5rem;
+}
+}
+@media (max-width: 570px){
+  .navbar{
+    padding: 0 0%! important;
+  }
+#header .logo {
+font-size: 15px;
+}
+}

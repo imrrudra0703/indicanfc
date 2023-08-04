@@ -1,0 +1,133 @@
+{% load static %}
+<html>
+<head>
+	<title>Exhibition 3</title>
+	<!-- ViewPort -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<!-- JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- POPPER_JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Main CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+
+	<!-- Local CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/exhibition.css'%}">
+
+	<style>
+    .video {
+position: absolute;
+left: 18.1%;
+top: 48.3%;
+/* transform: rotate(0.5deg); */
+border: 2px solid red;
+background-color: white;
+/* opacity: 0.5; */
+width: 15.4%;
+height: 15.3%;
+}
+		.video > a > iframe{
+			/*width: 163px;
+			height: 80px;*/
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+  <div class="cursor"></div>
+	<!-- ======= Top Bar ======= -->
+	<div id="topbar" class="d-flex align-items-center fixed-top">
+		<div class="container d-flex justify-content-center justify-content-md-between">
+
+
+
+
+		</div>
+	</div>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-cente">
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+			<h1 class="logo me-auto me-lg-0"><img src="{% static 'img/logo3.png'%} " alt="" class="img-fluid"><img src="{% static 'img/logo5.png'%} " alt="" class="img-fluid"></h1>
+			<!-- Uncomment below if you prefer to use an image logo -->
+
+
+			<nav id="navbar" class="navbar order-last order-lg-0">
+				<ul>
+
+					<li><a class="nav-link scrollto" href="{% url 'lobby' %}">Lobby</a></li>
+					<li><a class="nav-link scrollto" href="{% url 'exhibition' %}">Exhibition</a></li>
+					<li><a class="nav-link scrollto" href="{% url 'auditorium' %}">Auditorium</a></li>
+
+
+					<li><a class="nav-link scrollto" href="{% url 'clubhouse' %}">Clubhouse</a></li>
+					<!-- <li class="dropdown"><a href="#"><span>Clubhouse</span> <i class="bi bi-chevron-down"></i></a>
+						<ul>
+							<li><a href="{% url 'ninja'%}">Box Ninja</a></li>
+							<li><a href="{% url 'tic-tac-toe'%}">Tic-Tac-Toe</a></li>
+							<li><a href="{% url 'planet_defense'%}">Planet Defense</a></li>
+							<li><a href="{% url 'snake'%}">Snake Game</a></li>
+
+						</ul>
+					</li> -->
+					<li><a class="nav-link scrollto" href="{% url 'selfie' %}">Selfie Booth</a></li>
+					<li><a class="nav-link scrollto" href="{% url 'details' %}">Card Exchange</a></li>
+					<li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-caret-down-fill"></i></a>
+						<ul>
+							<li><a href="{% url 'virtual'%}">Virtual Tour</a></li>
+							<li><a href="{% url 'sponsors'%}">Sponsors</a></li>
+							<li><a href="{% url 'archive'%}">Session Archive</a></li>
+
+
+						</ul>
+					</li>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'App_Login:logout' %}">Logout</a></li>
+
+
+					{% else %}
+
+					<li><a href="{% url 'App_Login:login' %}">Login</a></li>
+					{% endif %}
+
+				</ul>
+
+			</nav><!-- .navbar -->
+
+
+		</div>
+	</header><!-- End Header -->
+
+	<!-- Main Image -->
+	<div class="img-container" style="">
+		<img src="{% static 'img/exhibition-indi.jpeg'%}" width="100%" height="100%">
+
+	</div>
+
+	<!-- Video Source -->
+	<span class="video">
+		<a href="#">
+			<iframe src="https://www.youtube.com/embed/AVXIp6iCaus?loop=1" title="YouTube video player" frameborder="2" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>		</a>
+	</span>
+
+</body>
+</html>
+
+<!-- Main JS -->
+	<script src="{% static 'js/rotate.js'%}" type="text/javascript"></script>
+	<script src="{% static 'js/main1.js'%} "></script>

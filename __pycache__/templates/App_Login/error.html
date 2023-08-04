@@ -1,0 +1,29 @@
+{% extends "layouts.html"%}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Error Page
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="{% static 'css/register.css'%}" rel="stylesheet">
+{% endblock %}
+
+    {% block content %}
+
+
+    <div class="global-container" style="background-size:cover">
+        <div class="card login-form">
+        <div class="card-body">
+          <center>
+            <h3 class="card-title ">Error</h3>
+            <a href="/" class="btn btn-success btn-login" style="margin-top:5px;">Back</a>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    {% endblock %}

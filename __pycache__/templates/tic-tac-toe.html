@@ -1,0 +1,38 @@
+
+{% extends 'layouts1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Tic-Tac-Toe
+{% endblock %}
+{% block style %}
+<link href="{% static 'css/tic-tac-toe.css'%}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+{% endblock %}
+{% block content %}
+
+<div class="padding">
+
+</div>
+<section>
+        <h1 class="game--title">Tic Tac Toe</h1>
+        <div class="game--container">
+            <div data-cell-index="0" class="cell"></div>
+            <div data-cell-index="1" class="cell"></div>
+            <div data-cell-index="2" class="cell"></div>
+            <div data-cell-index="3" class="cell"></div>
+            <div data-cell-index="4" class="cell"></div>
+            <div data-cell-index="5" class="cell"></div>
+            <div data-cell-index="6" class="cell"></div>
+            <div data-cell-index="7" class="cell"></div>
+            <div data-cell-index="8" class="cell"></div>
+        </div>
+        <h2 class="game--status"></h2>
+        <button class="game--restart">Restart Game</button>
+    </section>
+
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/tic-tac-toe.js'%} "></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+{% endblock %}

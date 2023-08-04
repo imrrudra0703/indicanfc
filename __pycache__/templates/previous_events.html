@@ -1,0 +1,290 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Previous Events
+{% endblock %}
+
+{% block content %}
+<div class="padding">
+
+<!-- ======= Events Section ======= -->
+<section id="events" class="events">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Events</h2>
+      <p>Previous Events</p>
+    </div>
+    {% for message in messages %}
+    <div class="alert alert-info" style="text-align:center;">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+
+    <div  class="row">
+      <div  class="col-lg-6">
+
+        <img style="margin-bottom:15%;" src="{% static 'img/pushpa.jpeg'%} " class="img-fluid" alt="" width="100%">
+      </div>
+      <div  class="col-lg-6 pt-4 pt-lg-0 content">
+        <h3 style="font-size:2.4em; "><b>Baat <span style="color:red;">Cheet</span></b></h3>
+        <div class="price">
+          <p><span></span></p>
+        </div>
+        <p class="fst-italic">
+          Ms. Pushpa Nair joined us live for our event held on June 12, 2022 at 9pm IST.
+        </p>
+
+<br>
+        <ul>
+          <li><i class="bi bi-check-circled"></i> She is a MarkCom specialist with two decades plus of experience in both corporate and public consultancies.  </li><br>
+          <li><i class="bi bi-check-circled"></i> The corporates include names like Taj Group of Hotels, Reed Exhibitions Group, Ananda in the Himalayas, World Hotel Marketing and agencies such Hill & Knowlton, O&M, Enterprise PR, Rediff PR and Perfect Relations where she has worked for blue chip companies.  </li><br>
+          <li><i class="bi bi-check-circled"></i> Her areas of expertise are Strategy and Event Management. Apart from this, Ms Nair also talks on Public Relations, Corporate Communication and Event Management and is a guest lecturer at Vedica Scholars Program for Women. Ms Nair has a MA degree in History from Delhi University. </li><br>
+        </ul>
+        <!-- <p>Watch our previous events in the session archive section on the website and enjoy our recent fun filled evenings.</p> -->
+
+          <br>
+        <center>
+          <div class="col-6" style="padding-right:0;">
+            <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+
+          </div>
+                <!-- <h5>Join Zoom Meeting</h5>
+                <a href="https://us06web.zoom.us/j/82980696053?pwd=b3hqY3VydkZ5VFRvVlJBMzJHRENSdz09" target="_blank">https://us06web.zoom.us/j/82980696053?pwd=b3hqY3VydkZ5VFRvVlJBMzJHRENSdz09</a><br><br>
+                <p><b>Meeting ID:</b> 829 8069 6053 <br>
+                  <b>Passcode:</b> icfc</p>
+
+                  <div class="row">
+                    <div class="col-6" style="padding-right:0;">
+                      <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Join ICFC</button></a></div>
+
+                    </div>
+                    <div class="col-6" style="padding-left:0;">
+                    <div class="Click-here"><button style="background-color:black;" class="book-a-table-btn" type="button" name="button">Ask Query</button> </div>
+  <div class="custom-model-main">
+      <div class="custom-model-inner">
+      <div class="close-btn">×</div>
+          <div class="custom-model-wrap">
+            <h3 class="card-title text-center">ASK QUERY</h3>
+              <div class="pop-up-content-wrap">
+                <form  method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label class="login-label" for="exampleInputEmail1">Full Name <i class="fab fa-accusoft"></i></label>
+                        <input type="text" name="fullname" class="form-control form-control-sm login-input" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="login-label" for="exampleInputEmail1">DOB <i class="fab fa-accusoft"></i></label>
+                        <input type="date" name="dob" class="form-control form-control-sm login-input" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="login-label" for="exampleInputPassword1">Question <i class="fas fa-question-circle"></i></label>
+
+                        <input type="text" name="question" class="form-control form-control-sm login-input" id="exampleInputPassword1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-login">Ask Question</button>
+
+
+                </form>
+              </div>
+          </div>
+      </div>
+      <div class="bg-overlay"></div>
+  </div> -->
+                    </div>
+                    <br><br><br><br><br><br>
+      <div  class="col-lg-6">
+        <img src="{% static 'img/musical.jpg'%} " class="img-fluid" alt="" width="100%" style="height:80%">
+      </div>
+      <div  class="col-lg-6 pt-4 pt-lg-0 content">
+        <h3><b>Musical Frenzy Evening</b></h3>
+        <div class="price">
+          <p><span></span></p>
+        </div>
+        <p class="fst-italic">
+          <b>INDICAN</b> organized another soulful musical evening on 29 May, 2022 at 9.00 PM in India and at 11:30 AM in Toronto, Canada.
+        </p>
+
+<br>
+        <ul>
+          <li><i class="bi bi-check-circled"></i> Gaurav Kumar, Voice of Delhi and the lead singer of Vishudh band, joined us for the musical event. </li><br>
+          <li><i class="bi bi-check-circled"></i> He brought the evening to life by performing live for our online audience and grabbing their attention by singing some of their all-time favourite tunes.- The birthdays of a few notable celebrities, including Hema Malini, were jointly enjoyed by all Bollywood admirers.   </li><br>
+          <li><i class="bi bi-check-circled"></i> We will also be celebrating the birthdays of some celebrities, be there if you are a bollywood fan </li><br>
+        </ul>
+
+          <br>
+        <center>
+          <div class="col-6" style="padding-right:0;">
+            <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+
+          </div>
+
+
+
+                    </div>
+                    <br><br><br><br><br><br>
+      <div  class="col-lg-6">
+        <img src="{% static 'img/eza.jpeg'%} " class="img-fluid" alt="" width="100%" style="height:80%">
+      </div>
+
+      <div  class="col-lg-6 pt-4 pt-lg-0 content">
+        <h3><b>Extravaganza</b></h3>
+        <div class="price">
+          <p><span></span></p>
+        </div>
+        <p class="fst-italic">
+          <b>IndiCan Friendship Club</b> honoured Madhuri Dixit, a woman renowned for her grace and expressiveness, on her birthday.
+        </p>
+       
+<br>
+        <ul>
+          <li><i class="bi bi-check-circled"></i> <b>INDICAN Friendship Club</b>  is a virtual platform for the Indians and Canadians to connect and build healthy relationships. </li><br>
+          <li><i class="bi bi-check-circled"></i> It is a membership based club, wherein you can subscribe on our website, engage in our weekly membership activities to keep the fun alive and also avail the services from our onboard associates in both the countries. </li><br>
+          <li><i class="bi bi-check-circled"></i>  Keeping the connection between these two countries in mind, this club allows its members to interact, celebrate, and trade virtually. </li><br>
+        </ul>
+
+          <br>
+        <center>
+
+          <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+
+
+        </div>
+
+      <div  class="col-lg-6">
+        <img src="{% static 'img/astro_talk.jpeg'%} " class="img-fluid" alt="" width="100%">
+      </div>
+      <div  class="col-lg-6 pt-4 pt-lg-0 content">
+        <h3><b>Astro Talk 2</b></h3>
+        <div class="price">
+          <p><span></span></p>
+        </div>
+        <p class="fst-italic">
+          Shweta Singh joined us live for the second time and shared her knowledge and her expertise in the astrological sciences. 
+              </p><br>
+              <ul>
+                      <li><i class="bi bi-check-circled"></i> Astrologer Shweta Singh joined us on 30 April over zoom and answered a few questions live.  </li><br>
+                      <li><i class="bi bi-check-circled"></i> She talked about planetary positions and shared the solutions accordingly. </li><br>
+                      <li><i class="bi bi-check-circled"></i> Audience was intrigued with her knowledge and accuracy. </li><br>
+                    </ul>
+        <p>
+
+          </p>
+          <br>
+
+
+            <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+
+
+      </div>
+    </div>
+    <br><br><br><br><br><br>
+    <div  class="row">
+      <div  class="col-lg-6">
+        <img src="{% static 'img/astro.jpeg'%} " class="img-fluid" alt="" width="100%">
+      </div>
+      <div  class="col-lg-6 pt-4 pt-lg-0 content">
+        <h3><b>Astro Talk</b></h3>
+        <div class="price">
+          <p><span></span></p>
+        </div>
+        <p class="fst-italic">
+
+        </p>
+        <ul>
+
+          <li><i class="bi bi-check-circled"></i> Shweta Singh, a renowned astrologer from Astro Salah, was our guest for the occasion. </li><br>
+          <li><i class="bi bi-check-circled"></i> Active participation was shown by our Indian and Canadian audiences. The audience was engaged and actively posed questions. </li>
+
+        </ul>
+        <p>
+          This event was a great success!
+          </p>
+          <br>
+
+
+            <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+
+
+      </div>
+    </div>
+
+          <br><br><br><br><br><br>
+
+          <div  class="row">
+            <div  class="col-lg-6">
+              <img src="{% static 'img/gala_pre.jpeg'%} " class="img-fluid" alt="" width="100%">
+            </div>
+            <div  class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3><b>Gala Evening</b></h3>
+              <div class="price">
+                <p><span></span></p>
+              </div>
+              <p class="fst-italic">
+                The event began with welcoming our honorable Secretary Mr. Anmol Chawla and our President Mr. Surender Gupta ji. 
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circled"></i> Our first guest for the event was Dr. Meeta Pandit who is a Hindustani Classical Vocalist. She presented an impactful insight into her journey with music. It was followed by a virtual music performance.</li>
+                <li><i class="bi bi-check-circled"></i> Ayesha Adlakha, our second guest, is an actor, creator, and TV presenter. Secretary Mr. Anmol Chawla and Ayesha Adlakha kept the audience engaged with their discerning conversations. /li>
+                <li><i class="bi bi-check-circled"></i> Ustaad Mohi Baha’ud Din Dagar who plays the Rudra Veena instrument and is an SNA Awardee also joined us for the evening.  </li>
+                <li><i class="bi bi-check-circled"></i>  We ended the evening with Shweta Singh who Is a renowned astrologer. She imparted her understanding and wisdom of astrology to the audience.    </li>
+              </ul>
+              <p>
+                The event concluded with a informative video of Indican friendship Club .
+                </p>
+                <br>
+
+
+                  <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+
+
+            </div>
+          </div>
+
+          <br><br><br><br><br><br>
+          <div  class="row">
+            <div  class="col-lg-6">
+              <img src="{% static 'img/launch.jpeg'%} " class="img-fluid" alt="" width="100%">
+            </div>
+            <div  class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3><b>Launch Event</b></h3>
+              <div class="price">
+                <p><span></span></p>
+              </div>
+              <p class="fst-italic">
+                The launch event was held on the auspicious day of Vasant Panchami.
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circled"></i> The event commenced with the welcome of honourable President Mr Surender Gupta ji and our Secretary Mr Anmol Chawla.</li>
+                <li><i class="bi bi-check-circled"></i> They introduced the audience to this virtual platform.
+The event went ahead with Saraswati Vandana gracefully presented by Payel and Dwaipayan Choudhary.  </li>
+                <li><i class="bi bi-check-circled"></i> Our Chief Guest for the event was Pandit Vishwa Mohan Bhatt, Grammy Winner Padmashree Awardee also Padma Bushan Awardee, who enlightened us with the world of music and events.  </li>
+                <li><i class="bi bi-check-circled"></i> Our special guest Br.Eric Lereste , Brahmakumari’s National Coordinator of Canada who gave us blessings for this positive start.   </li>
+              </ul>
+              <p>
+                The event was concluded with some entertainment, a unique music performance presented by Delhi indie Project. Our launch event was featured in the following news platforms The Pink Journey , Shine Delhi , Get Movie Info, Gopart Reports , Dwarka Express.
+                </p>
+                <br>
+
+
+                  <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+
+
+            </div>
+          </div>
+
+        </div><!-- End testimonial item -->
+
+
+
+
+
+
+</section><!-- End Events Section -->
+</div>
+
+
+{% endblock %}

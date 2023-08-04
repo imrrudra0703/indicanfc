@@ -1,0 +1,21 @@
+{% extends 'layouts1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Planet Defense
+{% endblock %}
+{% block style %}
+<link href="{% static 'css/planet_defense.css'%}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+{% endblock %}
+{% block content %}
+<div class="padding1">
+
+</div>
+<canvas id="canvas"></canvas>
+    <a href="" class="full-screen" target="_blank"></a>
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/planet_defense.js'%} "></script>
+{% endblock %}
+

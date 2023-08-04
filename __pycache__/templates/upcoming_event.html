@@ -1,0 +1,73 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Upcoming Events
+{% endblock %}
+
+{% block content %}
+<div class="padding">
+
+  <!-- ======= Events Section ======= -->
+  <section id="events" class="events">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Events</h2>
+        <p>Upcoming Events</p>
+      </div>
+      {% for message in messages %}
+      <div class="alert alert-info" style="text-align:center;">
+          {{ message }}
+      </div>
+      {% endfor %}
+
+
+
+
+      <div  class="row">
+        <div  class="col-lg-6">
+
+          <img src="{% static 'img/stay.jpeg'%} " class="img-fluid" alt="" width="90%">
+        </div>
+        <div  class="col-lg-6 pt-4 pt-lg-0 content">
+          <h3><b>Stay Tuned</b></h3>
+          <div class="price">
+            <p><span></span></p>
+          </div>
+          <p class="fst-italic">
+            We request you to be just a little patient as we are going to update the details about our upcoming event soon. To get regular updates about our future events, register on our website.
+          </p>
+
+  <br>
+          <p>Check the archive section to know more about our events. The archive section contains the details and information related to past events. </p>
+
+            <br>
+          <center>
+            <div class="col-6" style="padding-right:0;">
+              <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Join ICFC</button></a></div>
+
+            </div>
+
+                      </div>
+
+
+                    </div>
+
+
+
+              </div>
+          
+
+
+
+
+  </section><!-- End Events Section -->
+
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{% static 'js/main2.js'%} "></script>
+{% endblock %}

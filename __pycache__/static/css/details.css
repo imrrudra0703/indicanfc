@@ -1,0 +1,122 @@
+#header {
+background : black;
+}
+#topbar{
+  background-image: url("/static/img/details-bg1.jpg");
+  background-size: cover;
+}
+.image{
+  background-image: url("/static/img/details-bg1.jpg");
+  background-size: cover;
+}
+.bg{
+  background-image: url("/static/img/details-bg7.jpg");
+  background-size: cover;
+}
+.bg1{
+  padding:1%;
+    background-image: url("/static/img/details-bg1.jpg");
+    background-size: cover;
+}
+.bg1 h1{
+  text-align: center;
+  font-size: 300%;
+font-weight: 900;
+}
+.row{
+  background: rgba(0,0,0,0.7);
+  height: 100vh;
+}
+.padding{
+  padding: 5% 0 0 0;
+}
+.mb-3{
+  color: black;
+  font-weight: 900;
+}
+label[for=id_image]{
+  padding-left:8%;
+  color: black;
+  font-weight: 600;
+}
+label[for=id_name]{
+  color: black;
+  font-weight: 600;
+}
+.img-details{
+  height:75%;
+}
+.card{
+  height: 90%;
+
+}
+.popup{
+  width: 100%;
+}
+.popup img{
+
+    height: 8em;
+    cursor: pointer;
+
+}
+.show{
+    z-index: 999;
+    display: none;
+}
+.show .overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.show .img-show{
+    width: 600px;
+    height: 400px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+  background: white;
+    animation-duration: 4s;
+  animation-delay: 4s;
+  -webkit-transition: transform 1.2s ease-out;
+}
+.img-show span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+    font-weight: 900;
+}
+.img-show img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* The element to apply the animation to */
+.btn1 {
+
+  animation : border 1.5s ease-in-out 1s infinite alternate  ;
+
+  color: black ;
+
+  letter-spacing : 3px ;
+  cursor : pointer ;
+  font-weight: 600;
+}
+.btn1:hover{
+  background-color:#70fad0;
+}
+input[type="file"] {
+    color: black;
+}

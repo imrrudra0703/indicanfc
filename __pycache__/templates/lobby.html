@@ -1,0 +1,1038 @@
+{% load static %}
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" conent="ie=edge"/>
+		<link href="{% static 'img/logo3.png'%}" rel="icon">
+  <link href="{% static 'img/logo3.png'%} " rel="apple-touch-icon">
+
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- POPPER_JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style1.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+
+		<title>Lobby</title>
+
+	</head>
+	<style>
+	*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: sans-serif;
+	overflow: hidden;
+	background-color: white;
+}
+
+.scene,
+canvas{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+
+        .btn-custom {
+		    font-family: "Poppins", Sans-serif;
+		    font-weight: 600;
+		    letter-spacing: 1px;
+		    fill: #2A446C;
+		    color: #2A446C;
+		    background-color: #F4C562;
+		    border-color: #F4C562;
+		}
+
+		#canvas-container{
+			background: black;
+			width: 100%;
+			height: 100%;
+			max-height: 100%;
+			max-width: 100%;
+		}
+		#error_message,#myVideo,#canvas-container{
+					display: none;
+				}
+				#error_message{
+					text-align: center;
+				}
+				@media (orientation: portrait) {
+					#auto_rotate_image{
+						width:30%;
+					}
+				}
+				@media (orientation: landscape) {
+		        #auto_rotate_image{
+						width: 30%;
+					}
+		        }
+
+		        @media (orientation: portrait) {
+					#auto_rotate_image_container{
+						display: block;
+						text-align: center;
+					}
+					#auto_rotate_image{
+						width:50%;
+					}
+				}
+				@media (orientation: landscape) {
+				    #auto_rotate_image_container{
+						display: none;
+					}
+					#auto_rotate_image{
+						width: 30%;
+					}
+				}
+				#auto_rotate_image_container{
+					position:fixed;
+					width:100%;
+					top:0px;
+					left:0px;
+					height:100%;
+					opacity:1;
+					z-index:100;
+					background:#ffffff;
+				}
+
+
+	</style>
+
+	<body>
+
+		<div class="cursor"></div>
+	<!-- ======= Top Bar ======= -->
+	<div id="topbar" class="d-flex align-items-center fixed-top">
+		<div class="container d-flex justify-content-center justify-content-md-between">
+
+
+
+
+		</div>
+	</div>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-cente">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+    <h1 class="logo me-auto me-lg-0"><img src="{% static 'img/indi_logo.png'%} " alt="" class="img-fluid"></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'lobby' %}">Lobby</a></li>
+        <li class="dropdown"><a href="#"><span>Exhibition</span> <i class="fa fa-arrow-circle-down"></i></a>
+          <ul>
+            <li><a href="{% url 'add_exhibition'%}">Add Exhibition</a></li>
+            <li><a href="{% url 'view_exhibition'%}">View Exhibition</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link scrollto" href="{% url 'auditorium' %}">Auditorium</a></li>
+
+
+
+        <li><a class="nav-link scrollto" href="{% url 'selfie' %}">Selfie Booth</a></li>
+        <li class="dropdown"><a href="#"><span>Radio ICFC</span> <i class="fa fa-arrow-circle-down"></i></a>
+          <ul>
+            <li><a href="{% url 'icfc_radio' %}">Latest Radio ICFC</a></li>
+            <li><a href="{% url 'previous_radio_icfc' %}">Previous Radio ICFC</a></li>
+
+          </ul>
+        </li>
+
+        <li class="dropdown"><a href="#"><span>More</span> <i class="fa fa-arrow-circle-down"></i></a>
+          <ul>
+            <li><a class="nav-link scrollto" href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'archive'%}">Session Archive</a></li>
+            <li><a href="{% url 'virtual'%}">Virtual Tour</a></li>
+            <li><a href="{% url 'sponsors'%}">Sponsors</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'clubhouse' %}">Clubhouse</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'details' %}">Card Exchange</a></li>
+
+
+          </ul>
+        </li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'App_Login:logout' %}">Logout</a></li>
+
+
+        {% else %}
+
+        <li><a href="{% url 'App_Login:login' %}">Login</a></li>
+        {% endif %}
+
+      </ul>
+
+    </nav><!-- .navbar -->
+
+
+  </div>
+</header><!-- End Header -->
+
+
+
+	<div id="canvas-container">
+	<div class="scene"></div>
+	<video style="display:none;" id="myVideo" autoplay loop muted controls>
+			<source src="{% static 'red-2.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+
+	</video>
+	</div>
+
+	<div id="error_message" >
+		<img id="auto_rotate_image" src="{% static 'img/rotate.gif'%}"/>
+		<p>Turn On Auto Rotate on your Device and Turn Your Phone Around and</p>
+		<form action="" method="POST">
+      {% csrf_token %}
+			<button class='btn-custom' type="submit">Press Here</button>
+		</form>
+	</div>
+
+	<script src="{% static 'js/rotate.js'%}" type="text/javascript"></script>
+	<script src="{% static 'js/main1.js'%} "></script>
+	<script src="{% static 'js/three.min.js'%} "></script>
+	<script src="{% static 'js/GLTFLoader.js'%} "></script>
+	<script src="{% static 'js/OrbitControls.js'%} "></script>
+	<script src="{% static 'js/OBJLoader.js'%} "></script>
+	<!--<script src="app.js"></script>-->
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.3.4/dist/gsap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+	<script>
+
+
+
+	// variables for setup
+
+let container;
+let camera;
+let renderer;
+let scene;
+let house;
+var mesh4;
+let cube;
+let o_b_loader = [],o_b_material = [],o_b_geometry = [],o_b_mesh = [];
+let o_b_loader12,o_b_material12,o_b_geometry12,o_b_mesh12;
+
+var video, videoImage, videoImageContext, videoTexture;
+//document.addEventListener( 'mousemove', onDocumentMouseMove );
+
+
+/* Get Window Size */
+		console.log("Window Inner Width : "+window.innerWidth);
+		console.log("Window Inner Height : "+window.innerHeight);
+
+		console.log("screen Width : "+screen.width);
+		console.log("screen Height : "+screen.height);
+
+		console.log("screen Avail Width : "+screen.availWidth);
+		console.log("screen Avail Height : "+screen.availHeight);
+/* Get Window Size Ends Here */
+
+var wr = screen.availWidth/1366;
+var hr = screen.availHeight/728;
+console.log(wr);
+console.log(hr);
+
+if(window.innerHeight/window.innerWidth>1){
+	console.log('ratio'+window.innerHeight/window.innerWidth);
+	document.getElementById('error_message').style.display='block';
+
+}
+else{
+
+	document.getElementById('canvas-container').style.display='block';
+
+
+//function init(){
+	container = document.querySelector('.scene');
+
+	scene = new THREE.Scene();
+	raycaster = new THREE.Raycaster();
+    mouse = new THREE.Vector2()
+
+    //add box
+
+	/*const geometry = new THREE.BoxGeometry(50,50,50);
+	const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+	cube = new THREE.Mesh( geometry, material );
+	cube.position.set(0,0,2);*/
+
+	//add sphere
+
+	const geometry2 = new THREE.SphereGeometry(0.1,8,6);
+	const material2 = new THREE.MeshBasicMaterial({color:0xffff00});
+	const sphere = new THREE.Mesh(geometry2,material2);
+	sphere.position.set(0.026644303827856763,5.031990166374911,2.879677042675016);
+	// add image
+
+	// Camera Setup
+	const fov = 35;
+	const aspect = container.clientWidth/ container.clientHeight;
+	const near = 300;
+	const far = 1440;
+
+	camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, near , far );
+	//const interaction = new Interaction(renderer, scene, camera);
+
+	camera.position.set(00,00,1040);
+
+	//set Lightning
+
+	const ambient = new THREE.AmbientLight(0x404040,4);
+	scene.add(ambient);
+
+
+	renderer = new THREE.WebGLRenderer({antialias:true, alpha:true} );
+	renderer.setSize(container.clientWidth, container.clientHeight);
+
+	renderer.setPixelRatio(window.devicePixelRatio);
+	container.appendChild(renderer.domElement);
+
+
+	const controls = new THREE.OrbitControls(camera,renderer.domElement);
+	controls.addEventListener('change', renderer);
+	controls.maxZoom=2;
+	controls.minZoom=1;
+	controls.enableRotate = false;
+	controls.enableZoom = false;
+	//Load Model
+
+	animate();
+
+	var loader3 = new THREE.TextureLoader();
+	var material3 = new THREE.MeshLambertMaterial({
+		map:loader3.load('/static/img/lobby10.jpg')
+	});
+	var geometry3 = new THREE.PlaneGeometry(window.innerWidth,window.innerHeight);
+	var mesh3 = new THREE.Mesh(geometry3, material3);
+	mesh3.position.set(0,0,0);
+	scene.add(mesh3);
+/**
+*
+* Image two and three starts here remove when all done
+*
+*/
+	/*var loader4 = new THREE.TextureLoader();
+	var material4 = new THREE.MeshLambertMaterial({
+		map:loader4.load('images/Lobby left comp.jpg')
+	});
+	var geometry4 = new THREE.PlaneGeometry(window.innerWidth,window.innerHeight);
+	var mesh4 = new THREE.Mesh(geometry4, material4);
+	mesh4.position.set(-window.innerWidth,0,0);
+	scene.add(mesh4);
+
+	var loader5 = new THREE.TextureLoader();
+	var material5 = new THREE.MeshLambertMaterial({
+		map:loader5.load('images/Lobby Right comp.jpg')
+	});
+	var geometry5 = new THREE.PlaneGeometry(window.innerWidth,window.innerHeight);
+	var mesh5 = new THREE.Mesh(geometry5, material5);
+	mesh5.position.set(window.innerWidth,0,0);
+	scene.add(mesh5);*/
+
+/**
+*
+* Image two and three ends here remove till here when done
+*
+*/
+
+	////Video Code Starts here ****************************************
+
+
+	//video = document.createElement( 'video' );
+	// video.id = 'video';
+	// video.type = ' video/ogg; codecs="theora, vorbis" ';
+	//video.src = "./images/video.ogv";
+	video = document.getElementById( 'myVideo' );
+	video.load(); // must call after setting/changing source
+	video.play();
+	videoImage = document.createElement( 'canvas' );
+	videoImage.width = 300;
+	videoImage.height = 169;
+
+	videoImageContext = videoImage.getContext( '2d' );
+	// background color if no video present
+	videoImageContext.fillStyle = '#000000';
+	videoImageContext.fillRect( 0, 0, videoImage.width, videoImage.height );
+
+	videoTexture = new THREE.Texture( videoImage );
+	videoTexture.minFilter = THREE.LinearFilter;
+	videoTexture.magFilter = THREE.LinearFilter;
+
+	var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: true, side:THREE.DoubleSide } );
+	// the geometry on which the movie will be displayed;
+	// 		movie image will be scaled to fit these dimensions.
+	var movieGeometry = new THREE.PlaneGeometry( 123*wr, 56*hr, 4, 4  );
+	var movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
+	movieScreen.position.set(7,42*hr,0.5);
+	scene.add(movieScreen);
+	//camera.position.set(0,150,300);
+	//camera.lookAt(movieScreen.position);
+	/* ******************Video Code Ends here ******************************* */
+
+	//Orange button 1 loading starts here
+	drawImage(1,'/static/img/Round_Button.png',30*wr,30*hr,-188*wr,-19.5*hr,0.5);
+	//Orange button 2 loading starts here
+	drawImage(2,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,-108.2*wr, -19.5*hr,0.5);
+	//Orange button 3 loading starts here
+	drawImage(3,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,118.5*wr,-19.5*hr, 0.5);
+	//Orange button 4 loading starts here
+	drawImage(4,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,195.5*wr, -19.5*hr, 0.5);
+	//Arrow 1 pointing up
+	drawImage(5,'{% static 'img/arrow_down.png'%}',25*wr,25*hr,-217.7*wr,-109.5*hr,1.1);
+	drawImage(6,'{% static 'img/arrow_down.png'%}',25*wr,25*hr,-73.0*wr,-109.5*hr,1.1);
+	drawImage(7,'{% static 'img/arrow_down.png'%}',25*wr,25*hr,66.0*wr,-109.5*hr,1.1);
+    drawImage(8,'{% static 'img/arrow_down.png'%}',25*wr,25*hr,205.0*wr,-109.5*hr,1.1);
+
+
+
+
+
+
+    drawImage(9,'/static/img/Round_Button.png',30*wr,30*hr,0,-255.5*hr,0.5);
+    drawImage(10,'/static/img/arrow_up.png',25*wr,25*hr,0,-255.5*hr,1.1);
+
+
+
+
+
+
+	drawImage(15,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,0,-160*hr,0.5);
+    drawImage(16,'{% static 'img/arrow_down.png'%}',25*wr,25*hr,0,-160*hr,1.1);
+
+
+	drawImage(17,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,-250*wr,-188*hr,0.5);
+	drawImage(18,'{% static 'img/arrow_tilt_left_d.png'%}',25*wr,25*hr,-250*wr,-188*hr,1.1);
+
+	drawImage(19,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,250*wr,-188*hr,0.5);
+	drawImage(20,'{% static 'img/arrow_tilt_right_d.png'%}',25*wr,25*hr,250*wr,-188*hr,1.1);
+
+	o_b_mesh[15].visible = false;
+	o_b_mesh[16].visible = false;
+	o_b_mesh[17].visible = false;
+	o_b_mesh[18].visible = false;
+	o_b_mesh[19].visible = false;
+	o_b_mesh[20].visible = false;
+
+	scene.add(sphere);
+
+
+//}
+
+
+
+function drawImage(i,url,width,height,x_cord,y_cord,z_cord){
+    o_b_loader[i] = new THREE.TextureLoader();//ob1
+    o_b_material[i]= new THREE.MeshLambertMaterial({
+		map:o_b_loader[i].load(url)
+	},{alphaMap:"white"});
+	o_b_material[i].transparent = true;
+	o_b_geometry[i] = new THREE.PlaneGeometry(width,height);
+	o_b_mesh[i] = new THREE.Mesh(o_b_geometry[i], o_b_material[i]);
+	o_b_mesh[i].position.set(x_cord,y_cord,z_cord);
+	scene.add(o_b_mesh[i]);
+
+}
+
+var i = 0;
+var trend="up";8
+setInterval(function(){
+
+	//Arrow Down 1
+	o_b_mesh[5].position.set(-188*wr,(-19.5*hr)+(i*1),1.1);
+	//Arrow Down 2
+	o_b_mesh[6].position.set(-108.2*wr,(-19.5*hr)+(i*1),1.1);
+	//Arrow Down 3
+	o_b_mesh[7].position.set(118.5*wr,(-19.5*hr)+(i*1),1.1);
+	//Arrow Down 4
+	o_b_mesh[8].position.set(195.5*wr,(-19.5*hr)+(i*1),1.1);
+
+
+
+	//Arrow Up
+	o_b_mesh[10].position.set(0,(-255.5*hr)+(i*1),1.1);//zoom in
+
+
+
+	o_b_mesh[16].position.set(0,(-160*hr)+(i*1),1.1);//zoom out
+
+
+	o_b_mesh[18].position.set((-250*wr)+i*1,(-188*hr)-(i*1),1.1);//zoom out left
+	o_b_mesh[20].position.set((250*wr)-i*1,(-188*hr)-(i*1),1.1);//zoom out right
+
+	if(i==0){trend = "up";	}
+	else if(i>4){trend = "down";}
+	if(trend=="up"){i++;}
+	else if(trend=="down"){i--;}
+
+
+
+}, 1);
+
+
+
+function animate(){
+	requestAnimationFrame(animate);
+	//cube.rotation.x += 0.01;
+	//renderer.render(scene,camera);
+	render();
+	video = document.getElementById( 'myVideo' );
+	if ( video.readyState === video.HAVE_ENOUGH_DATA )
+	{
+		videoImageContext.drawImage( video, 0, 0 );
+		if ( videoTexture )
+			videoTexture.needsUpdate = true;
+	}
+}
+
+function render()
+{
+
+
+	renderer.render( scene, camera );
+}
+
+//init();
+
+
+
+function onWindowResize(){
+	camera.aspect = container.clientWidth / container.clientHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(container.clientWidth, container.clientHeight);
+}
+
+window.addEventListener("resize", onWindowResize);
+renderer.domElement.addEventListener('click', onClick, false);
+renderer.domElement.addEventListener('touchstart',onMobileClick,false);
+renderer.domElement.addEventListener('mousemove',onDocumentMouseMove,false);
+
+function onDocumentMouseMove(event) {
+
+
+
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+		  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+		  raycaster.setFromCamera(mouse, camera);
+
+		  var intersects = raycaster.intersectObjects(scene.children, true);
+
+		   if(intersects.length > 0) {
+			   	for(var i=0; i< intersects.length; i++){
+
+			   		var object_id = intersects[i].object.id;
+
+			   		 if(object_id == 23 || object_id == 24){
+			   		 	//console.log(object_id);
+					 	$('html,body').css('cursor', 'pointer');
+					 }
+					 else{
+					 	//console.log('test');
+					 	//$('html,body').css('cursor','default');
+					 }
+
+
+
+				}
+	        }
+
+}
+
+
+
+
+function update()
+{
+	if ( keyboard.pressed("p") )
+		video.play();
+
+	if ( keyboard.pressed("space") )
+		video.pause();
+
+	if ( keyboard.pressed("s") ) // stop video
+	{
+		video.pause();
+		video.currentTime = 0;
+	}
+
+	if ( keyboard.pressed("r") ) // rewind video
+		video.currentTime = 0;
+
+	controls.update();
+	stats.update();
+}
+
+document.getElementById('myVideo').onload=function(){
+	console.log('test');
+	video = document.getElementById( 'myVideo' );
+	video.load(); // must call after setting/changing source
+	video.play();
+}
+
+var domain = window.location.protocol+"//"+window.location.host;
+function onMobileClick(event){
+	event.preventDefault();
+
+
+
+	mouse.x = (event.changedTouches[0].clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.changedTouches[0].clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    var intersects = raycaster.intersectObjects(scene.children, true);
+    if (intersects.length > 0) {
+    console.log('Intersection:', intersects[0]);
+    //$('html,body').css('cursor', 'pointer');
+  	}
+
+	  for(var i=0; i< intersects.length; i++){
+  	  	 var object_id = intersects[i].object.id;
+  	  	 console.log(object_id);
+  	  	 console.log('test');
+
+				 if(object_id == 18 ){
+					 window.location = domain+"/archive";
+				}
+				if(object_id == 19 ){
+				 window.location = domain+"/virtual";
+				}
+				if(object_id == 20 ){
+				 window.location = domain+"/selfie";
+				}
+				if(object_id == 21 ){
+				 window.location = domain+"/sponsors";
+				 console.log(object_id)
+				}
+				 if(object_id == 38 ){
+					 window.location = domain+"/clubhouse";
+				}
+				if(object_id == 31 ){
+				 window.location = domain+"/view-exhibition";
+				}
+				if(object_id == 36 ){
+				 window.location = domain+"/details";
+				}
+				if(object_id == 33 ){
+				 window.location = domain+"/auditorium";
+				 console.log(object_id)
+				}
+
+  	  	 if(object_id == 9 ){   //23 or 24
+  	  	 	o_b_mesh[15].visible = true;
+			o_b_mesh[16].visible = true;
+		 	gsap.to( camera, {
+				duration: 2,
+				zoom: 1.8,
+				onUpdate: function () {
+					camera.updateProjectionMatrix();
+				}
+			} );
+		 }
+
+
+		 if(object_id == 11 ){ //25 or 26
+  	  	 	o_b_mesh[17].visible = false;
+			o_b_mesh[18].visible = false;
+			console.log(object_id)
+  	  	 	//camera.position.set(-window.innerWidth,00,1040);
+
+
+  	  	 	gsap.to( camera, {
+				duration: 2,
+				zoom: 2.0,
+				onUpdate: function () {
+					camera.updateProjectionMatrix();
+				}
+			} );
+
+
+
+
+		 }
+
+
+
+		 if(object_id == 23 ){   //23 or 24
+			o_b_mesh[15].visible = true;
+	o_b_mesh[16].visible = true;
+	gsap.to( camera, {
+		duration: 2,
+		zoom: 1.8,
+		onUpdate: function () {
+			camera.updateProjectionMatrix();
+
+		}
+	} );
+ }
+
+
+
+ if(object_id == 31 || object_id == 29 || object_id == 33){ // 29-30 //31-32 //33-34
+			o_b_mesh[15].visible = false;
+	o_b_mesh[16].visible = false;
+	o_b_mesh[17].visible = false;
+	o_b_mesh[18].visible = false;
+	o_b_mesh[19].visible = false;
+	o_b_mesh[20].visible = false;
+	console.log(object_id)
+			//camera.position.set(+window.innerWidth,00,1040);
+
+			gsap.to( camera, {
+		duration: 2,
+		zoom: 1.0,
+		onUpdate: function () {
+			camera.updateProjectionMatrix();
+		}
+	} );
+	gsap.to( controls.target, {
+		duration: 2,
+		x: 0,
+		y: 0,
+		z: 0,
+		onUpdate: function () {
+
+			controls.update();
+
+		}
+	} );
+ }
+ if(object_id == 27){ // 29-30 //31-32 //33-34
+			o_b_mesh[15].visible = false;
+	o_b_mesh[16].visible = false;
+	o_b_mesh[17].visible = false;
+	o_b_mesh[18].visible = false;
+	o_b_mesh[19].visible = false;
+	o_b_mesh[20].visible = false;
+	console.log(object_id)
+	$(".video").addClass("zoom-audi1");
+			// camera.position.set(+window.innerWidth,00,1040);
+
+			gsap.to( camera, {
+		duration: 2,
+		zoom: 1.8,
+		onUpdate: function () {
+			camera.updateProjectionMatrix();
+		}
+	} );
+	gsap.to( controls.target, {
+		duration: 2,
+		x: 205,
+		y: -269,
+		z: 0,
+		onUpdate: function () {
+			controls.update();
+		}
+	} );
+
+ }
+ if(object_id == 25){ // 29-30 //31-32 //33-34
+			o_b_mesh[15].visible = false;
+	o_b_mesh[16].visible = false;
+	o_b_mesh[17].visible = false;
+	o_b_mesh[18].visible = false;
+	o_b_mesh[19].visible = false;
+	o_b_mesh[20].visible = false;
+	console.log(object_id)
+			//camera.position.set(+window.innerWidth,00,1040);
+
+			gsap.to( camera, {
+		duration: 2,
+		zoom: 1.0,
+		onUpdate: function () {
+			camera.updateProjectionMatrix();
+		}
+	} );
+	gsap.to( controls.target, {
+		duration: 2,
+		x: 155,
+		y: 65,
+		z: 0,
+		onUpdate: function () {
+
+			controls.update();
+
+		}
+	} );
+
+ }
+		 /*if(object_id == 28){
+  	  	 	console.log('cheange_view');
+  	  	 	camera.position.set(00,00,1040);
+  	  	 	controls.enableZoom = true;
+
+		 }
+
+		 if(object_id == 29){
+  	  	 	console.log('cheange_view');
+  	  	 	camera.position.set(00,00,1040);
+  	  	 	controls.enableZoom = true;
+
+		 }*/
+
+  }
+
+
+}
+
+/*var clientX,clientY;
+var src = document.getElementById('canvas-container');
+src.addEventListener('touchstart',function(e){
+	var i;
+	  for (i=0; i < e.touches.length; i++) {
+	    console.log("touchpoint[" + i + "].screenX = " + e.touches[i].screenX);
+	    console.log("touchpoint[" + i + "].screenY = " + e.touches[i].screenY);
+	  }
+
+	  clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+	  console.log(clientX,clientY);
+
+},false);*/
+
+}
+//Orange button 1 loading starts here
+drawImage(101,'/static/img/Round_Button.png',30*wr,30*hr,-188*wr,-119.5*hr,0.5);
+//Orange button 2 loading starts here
+drawImage(102,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,-108.2*wr, -119.5*hr,0.5);
+//Orange button 3 loading starts here
+drawImage(103,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,118.5*wr,-119.5*hr, 0.5);
+//Orange button 4 loading starts here
+drawImage(104,'{% static 'img/Round_Button.png'%}',30*wr,30*hr,195.5*wr, -119.5*hr, 0.5);
+//Arrow 1 pointing up
+drawImage(105,'{% static 'img/arrow_up.png'%}',25*wr,25*hr,-217.7*wr,-109.5*hr,1.1);
+drawImage(106,'{% static 'img/arrow_up.png'%}',25*wr,25*hr,-173.0*wr,-109.5*hr,1.1);
+drawImage(107,'{% static 'img/arrow_up.png'%}',25*wr,25*hr,66.0*wr,-109.5*hr,1.1);
+	drawImage(108,'{% static 'img/arrow_up.png'%}',25*wr,25*hr,255.0*wr,-109.5*hr,1.1);
+	function drawImage(i,url,width,height,x_cord,y_cord,z_cord){
+	    o_b_loader[i] = new THREE.TextureLoader();//ob1
+	    o_b_material[i]= new THREE.MeshLambertMaterial({
+			map:o_b_loader[i].load(url)
+		},{alphaMap:"white"});
+		o_b_material[i].transparent = true;
+		o_b_geometry[i] = new THREE.PlaneGeometry(width,height);
+		o_b_mesh[i] = new THREE.Mesh(o_b_geometry[i], o_b_material[i]);
+		o_b_mesh[i].position.set(x_cord,y_cord,z_cord);
+		scene.add(o_b_mesh[i]);
+
+	}
+
+	var i = 0;
+	var trend="up";8
+	setInterval(function(){
+
+	//Arrow Down 1
+	o_b_mesh[105].position.set(-188*wr,(-119.5*hr)+(i*1),1.1);
+	//Arrow Down 2
+	o_b_mesh[106].position.set(-108.2*wr,(-119.5*hr)+(i*1),1.1);
+	//Arrow Down 3
+	o_b_mesh[107].position.set(118.5*wr,(-119.5*hr)+(i*1),1.1);
+	//Arrow Down 4
+	o_b_mesh[108].position.set(195.5*wr,(-119.5*hr)+(i*1),1.1);
+	if(i==0){trend = "up";	}
+	else if(i>4){trend = "down";}
+	if(trend=="up"){i++;}
+	else if(trend=="down"){i--;}
+
+
+
+}, 1);
+	function onClick() {
+
+	  event.preventDefault();
+
+	  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+	  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+	  raycaster.setFromCamera(mouse, camera);
+
+	  var intersects = raycaster.intersectObjects(scene.children, true);
+
+	  if (intersects.length > 0) {
+	    console.log('Intersection:', intersects[0]);
+	    //$('html,body').css('cursor', 'pointer');
+	  }
+	  else{
+	  	//$('html,body').css('cursor', 'default');
+	  }
+	  for(var i=0; i< intersects.length; i++){
+	  	  	 var object_id = intersects[i].object.id;
+	  	  	 console.log(object_id);
+					 if(object_id == 18 ){
+	 					 window.location = domain+"/archive";
+	 				}
+	 				if(object_id == 19 ){
+	 				 window.location = domain+"/virtual";
+	 				}
+	 				if(object_id == 20 ){
+	 				 window.location = domain+"/selfie";
+	 				}
+	 				if(object_id == 21 ){
+	 				 window.location = domain+"/sponsors";
+	 				 console.log(object_id)
+	 				}
+					 if(object_id == 38 ){
+	 					 window.location = domain+"/clubhouse";
+	 				}
+	 				if(object_id == 31 ){
+	 				 window.location = domain+"/view-exhibition";
+	 				}
+	 				if(object_id == 36 ){
+	 				 window.location = domain+"/details";
+	 				}
+	 				if(object_id == 33 ){
+	 				 window.location = domain+"/auditorium";
+	 				 console.log(object_id)
+	 				}
+
+	  	  	 if(object_id == 23 ){   //23 or 24
+	  	  	 	o_b_mesh[15].visible = true;
+				o_b_mesh[16].visible = true;
+			 	gsap.to( camera, {
+					duration: 2,
+					zoom: 1.8,
+					onUpdate: function () {
+						camera.updateProjectionMatrix();
+
+					}
+				} );
+			 }
+
+
+
+			 if(object_id == 31 || object_id == 29 || object_id == 33){ // 29-30 //31-32 //33-34
+	  	  	 	o_b_mesh[15].visible = false;
+				o_b_mesh[16].visible = false;
+				o_b_mesh[17].visible = false;
+				o_b_mesh[18].visible = false;
+				o_b_mesh[19].visible = false;
+				o_b_mesh[20].visible = false;
+				console.log(object_id)
+	  	  	 	//camera.position.set(+window.innerWidth,00,1040);
+
+	  	  	 	gsap.to( camera, {
+					duration: 2,
+					zoom: 1.0,
+					onUpdate: function () {
+						camera.updateProjectionMatrix();
+					}
+				} );
+				gsap.to( controls.target, {
+					duration: 2,
+					x: 0,
+					y: 0,
+					z: 0,
+					onUpdate: function () {
+
+						controls.update();
+
+					}
+				} );
+			 }
+			 if(object_id == 27){ // 29-30 //31-32 //33-34
+	  	  	 	o_b_mesh[15].visible = false;
+				o_b_mesh[16].visible = false;
+				o_b_mesh[17].visible = false;
+				o_b_mesh[18].visible = false;
+				o_b_mesh[19].visible = false;
+				o_b_mesh[20].visible = false;
+				console.log(object_id)
+				$(".video").addClass("zoom-audi1");
+	  	  	 	// camera.position.set(+window.innerWidth,00,1040);
+
+	  	  	 	gsap.to( camera, {
+					duration: 2,
+					zoom: 1.8,
+					onUpdate: function () {
+						camera.updateProjectionMatrix();
+					}
+				} );
+				gsap.to( controls.target, {
+					duration: 2,
+					x: 205,
+					y: -269,
+					z: 0,
+					onUpdate: function () {
+						controls.update();
+					}
+				} );
+
+			 }
+			 if(object_id == 25){ // 29-30 //31-32 //33-34
+	  	  	 	o_b_mesh[15].visible = false;
+				o_b_mesh[16].visible = false;
+				o_b_mesh[17].visible = false;
+				o_b_mesh[18].visible = false;
+				o_b_mesh[19].visible = false;
+				o_b_mesh[20].visible = false;
+				console.log(object_id)
+	  	  	 	//camera.position.set(+window.innerWidth,00,1040);
+
+	  	  	 	gsap.to( camera, {
+					duration: 2,
+					zoom: 1.0,
+					onUpdate: function () {
+						camera.updateProjectionMatrix();
+					}
+				} );
+				gsap.to( controls.target, {
+					duration: 2,
+					x: 155,
+					y: 65,
+					z: 0,
+					onUpdate: function () {
+
+						controls.update();
+
+					}
+				} );
+
+			 }
+			 // if(object_id == 28){
+	  	 //  	 	console.log('cheange_view');
+	  	 //  	 	camera.position.set(00,00,1040);
+	  	 //  	 	controls.enableZoom = true;
+			 //
+			 // }
+			 //
+			 // if(object_id == 29){
+	  	 //  	 	console.log('cheange_view');
+	  	 //  	 	camera.position.set(00,00,1040);
+	  	 //  	 	controls.enableZoom = true;
+			 //
+			 // }
+
+	  }
+
+	}
+
+
+
+	</script>
+
+	</body>
+
+</html>

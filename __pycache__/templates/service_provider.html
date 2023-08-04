@@ -1,0 +1,60 @@
+{% extends 'layouts1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Service Provider
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="{% static 'css/service.css'%}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<section id="service">
+  <div class="bg1">
+    <h1>SERVICE PROVIDER </h1>
+  </div>
+  <div class="bg">
+    <div class="row">
+
+
+
+        <div style="margin: 3%;" class="col-md-4 col-sm-6 col-6">
+          <div class="popup">
+          <div class="card m-2">
+            <img style="height:33vh" src="{% static 'img/zodiac2.png'%}" alt="" class="card-img-top img-details" >
+            <div class="card-footer">
+              <h4 class="text-muted">Shweta Singh</h4>
+              <p class="text-muted">Shweta Singh is an astrologer who has more than 9 years of experience in the field. She has worked in news channels for her expertise. She also deals in gemstones. Avail her services by contacting her directly.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+
+
+
+    </div>
+    <div class="show">
+      <div class="overlay"></div>
+      <div class="img-show">
+        <span>X</span>
+        <img src="">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+</div>
+{% endblock %}
+{% block js %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{% static 'js/details.js'%} "></script>
+{% endblock %}

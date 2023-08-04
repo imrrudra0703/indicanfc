@@ -1,0 +1,25 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% block title %}
+Payment Status
+{% endblock %}
+{% block content %}
+<div class="padding">
+  <center>
+    {% if status %}
+    <div class="container">
+      <h1>Thank you, Your payment was succesful.</h1>
+      <img style="border-radius: 10%;" src="{% static 'img/success1.png '%}" alt=""><br>
+      <button class="btn btn-success" type="button" name="button"><a href="{% url 'live' %}">Watch Live</a></button>
+    </div>
+    {% else %}
+    <div class="container">
+      <h1>Your Payment is Failed! Try Again.</h1>
+      <img style="border-radius: 10%;" src="{% static 'img/cancel.png '%}" alt="">
+
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

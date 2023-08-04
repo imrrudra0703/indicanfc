@@ -1,0 +1,62 @@
+{% extends 'layouts1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Card Exchange
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="{% static 'css/details.css'%}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+{% endblock %}
+
+{% block content %}
+
+<div class=" padding">
+  <div class="py-5 text-center text-white image ">
+    <h1 class="mb-3">Upload Image <i class="fas fa-upload"></i></h1>
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" class="btn1" value="Upload">
+    </form>
+  </div>
+
+<div class="bg1">
+  <h1>CARD EXCHANGE <i class="fas fa-id-card"></i></h1>
+</div>
+<div class="bg">
+  <div class="row">
+
+
+      {% for x in img %}
+      <div class="col-md-2 col-sm-3 col-4">
+        <div class="popup">
+        <div class="card m-2">
+          <img src="{{x.image.url}}" alt="" class="card-img-top img-details" >
+          <div class="card-footer">
+            <small class="text-muted">{{x.name}}</small>
+            <small class="text-muted">{{x.date}}</small>
+          </div>
+        </div>
+      </div>
+      </div>
+      {% endfor %}
+
+
+  </div>
+  <div class="show">
+    <div class="overlay"></div>
+    <div class="img-show">
+      <span>X</span>
+      <img src="">
+    </div>
+  </div>
+
+</div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="{% static 'js/details.js'%} "></script>
+{% endblock %}

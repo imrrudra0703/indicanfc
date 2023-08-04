@@ -1,0 +1,39 @@
+{% extends 'layouts1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Snake Game
+{% endblock %}
+{% block style %}
+<link href="{% static 'css/snake.css'%}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+{% endblock %}
+{% block content %}
+<center>
+  <div class="padding1">
+
+  </div>
+<div class="container noselect">
+  <div class="wrapper">
+    <button id="replay">
+      <i class="fas fa-play"></i>
+      RESTART
+    </button>
+    <div id="canvas">
+
+    </div>
+    <div id="ui">
+      <h2>SCORE
+      </h2>
+      <span id="score">00</span>
+    </div>
+  </div>
+  <div id="author">
+    <h1>SNAKE</h1> <span>by Indican</span>
+  </div>
+</div>
+</center>
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/snake.js'%} "></script>
+{% endblock %}

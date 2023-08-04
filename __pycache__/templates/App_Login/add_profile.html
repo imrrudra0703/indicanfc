@@ -1,0 +1,31 @@
+{% extends 'layouts.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Add Profile
+{% endblock %}
+
+{% block css_block %}
+<style>
+  .add_profile{
+    width:1000px;
+    border:1px solid #ccc;
+    padding-top:80px;
+    padding-bottom:40px;
+  }
+
+</style>
+{% endblock %}
+{% block content %}
+<center>
+<div class="add_profile">
+  <h2>Add Profile: </h2>
+  <form class="container" method="post">
+    {{ form|crispy}}
+    {% csrf_token %}
+<br>
+  <a href="{% url 'App_Login:profile' %}" class="btn btn-warning btn-sm">Add Profile</a>
+<br>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,259 @@
+{% extends 'layouts1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Previous Events
+{% endblock %}
+{% block style %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/rotate.css'%}">
+<style>
+  .col-lg-6{
+    padding-bottom:2%;
+  }
+</style>
+
+{% endblock %}
+{% block content %}
+<div class="padding">
+
+<!-- ======= Events Section ======= -->
+<section id="events" class="events">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Radio ICFC</h2>
+      <p>Previous Radio ICFC</p>
+    </div>
+    {% for message in messages %}
+    <div class="alert alert-info" style="text-align:center;">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+
+    <div  class="row">
+      <div  class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-4 col-4">
+            <img style="margin-bottom:15%;" src="{% static 'img/rr1.jpeg'%} " class="img-fluid" alt="" width="100%">
+
+          </div>
+          
+          <div  class="col-lg-8 col-8 pt-lg-0 content">
+            <h3 style="font-size:2em; "><b>Episode <span style="color:#D864A9;"> #1</span></b></h3>
+            <div class="price">
+              <p><span></span></p>
+            </div>
+            <p class="fst-italic">
+              IndiCan Friendship Club is honoured to announce that we have launched our very own radio podcast,🎙 "Gumnaam Sitaare," in which we will talk about these neglected personalities in order to provide them the respect they merit.
+            </p>
+            <audio controls preload="auto">
+              <source src="{% static 'img/audio/P1.mp3'%}" type="audio/mp3">
+             
+            Your browser does not support the audio element.
+            </audio>
+      
+            <br>
+              <!-- <ul>
+                <li><i class="bi bi-check-circled"></i> She is a MarkCom specialist with two decades plus of experience in both corporate and public consultancies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> The corporates include names like Taj Group of Hotels, Reed Exhibitions Group, Ananda in the Himalayas, World Hotel Marketing and agencies such Hill & Knowlton, O&M, Enterprise PR, Rediff PR and Perfect Relations where she has worked for blue chip companies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> Her areas of expertise are Strategy and Event Management. Apart from this, Ms Nair also talks on Public Relations, Corporate Communication and Event Management and is a guest lecturer at Vedica Scholars Program for Women. Ms Nair has a MA degree in History from Delhi University. </li><br>
+              </ul> -->
+              <!-- <p>Watch our previous events in the session archive section on the website and enjoy our recent fun filled evenings.</p> -->
+      
+            <br>
+              <center>
+                <!-- <div class="col-6" style="padding-right:0;">
+                  <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+      
+                </div> -->
+                      
+          </div>
+          <br><br><br><br><br><br>
+        </div>
+
+      </div>
+
+      <div  class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-4 col-4">
+            <img style="margin-bottom:15%;" src="{% static 'img/rr2.jpeg'%} " class="img-fluid" alt="" width="100%">
+
+          </div>
+          
+          <div  class="col-lg-8 col-8 pt-lg-0 content">
+            <h3 style="font-size:2em; "><b>Episode<span style="color:#8F43EE;"> #2</span></b></h3>
+            <div class="price">
+              <p><span></span></p>
+            </div>
+            <p class="fst-italic">
+              Get ready to travel back in time and re-discover some amazing talent on our latest radio podcast!
+            </p>
+            <audio controls preload="auto">
+              <source src="{% static 'img/audio/P2.mp3'%}" type="audio/mp3">
+             
+            Your browser does not support the audio element.
+            </audio>
+      
+            <br>
+              <!-- <ul>
+                <li><i class="bi bi-check-circled"></i> She is a MarkCom specialist with two decades plus of experience in both corporate and public consultancies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> The corporates include names like Taj Group of Hotels, Reed Exhibitions Group, Ananda in the Himalayas, World Hotel Marketing and agencies such Hill & Knowlton, O&M, Enterprise PR, Rediff PR and Perfect Relations where she has worked for blue chip companies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> Her areas of expertise are Strategy and Event Management. Apart from this, Ms Nair also talks on Public Relations, Corporate Communication and Event Management and is a guest lecturer at Vedica Scholars Program for Women. Ms Nair has a MA degree in History from Delhi University. </li><br>
+              </ul> -->
+              <!-- <p>Watch our previous events in the session archive section on the website and enjoy our recent fun filled evenings.</p> -->
+      
+            <br>
+              <center>
+                <!-- <div class="col-6" style="padding-right:0;">
+                  <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+      
+                </div> -->
+                      
+          </div>
+          <br><br><br><br><br><br>
+        </div>
+
+      </div>
+      <div  class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-4 col-4">
+            <img style="margin-bottom:15%;" src="{% static 'img/rr3.jpeg'%} " class="img-fluid" alt="" width="100%">
+
+          </div>
+          
+          <div  class="col-lg-8 col-8 pt-lg-0 content">
+            <h3 style="font-size:2em; "><b>Episode <span style="color:#ADE792;"> #3</span></b></h3>
+            <div class="price">
+              <p><span></span></p>
+            </div>
+            <p class="fst-italic">
+              Bollywood is often seen as a glamorous industry, but the reality is far more complex.
+            </p>
+            <audio controls preload="auto">
+              <source src="{% static 'img/audio/P3.mp3'%}" type="audio/mp3">
+             
+            Your browser does not support the audio element.
+            </audio>
+      
+            <br>
+              <!-- <ul>
+                <li><i class="bi bi-check-circled"></i> She is a MarkCom specialist with two decades plus of experience in both corporate and public consultancies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> The corporates include names like Taj Group of Hotels, Reed Exhibitions Group, Ananda in the Himalayas, World Hotel Marketing and agencies such Hill & Knowlton, O&M, Enterprise PR, Rediff PR and Perfect Relations where she has worked for blue chip companies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> Her areas of expertise are Strategy and Event Management. Apart from this, Ms Nair also talks on Public Relations, Corporate Communication and Event Management and is a guest lecturer at Vedica Scholars Program for Women. Ms Nair has a MA degree in History from Delhi University. </li><br>
+              </ul> -->
+              <!-- <p>Watch our previous events in the session archive section on the website and enjoy our recent fun filled evenings.</p> -->
+      
+            <br>
+              <center>
+                <!-- <div class="col-6" style="padding-right:0;">
+                  <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+      
+                </div> -->
+                      
+          </div>
+          <br><br><br><br><br><br>
+        </div>
+
+      </div>
+    
+    <div  class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-4 col-4">
+          <img style="margin-bottom:15%;" src="{% static 'img/rr4.jpeg'%} " class="img-fluid" alt="" width="100%">
+
+        </div>
+        
+        <div  class="col-lg-8 col-8 pt-lg-0 content">
+          <h3 style="font-size:2em; "><b>Episode <span style="color:#FFA559;"> #4</span></b></h3>
+          <div class="price">
+            <p><span></span></p>
+          </div>
+          <p class="fst-italic">
+            As March comes to a close, we refuse to end on a low note.
+Instead, we are thrilled to announce the latest episode of the Radio ICFC Podcast, featuring a truly remarkable individual, Govinda!
+          </p>
+          <audio controls preload="auto">
+            <source src="{% static 'img/audio/P4.mp3'%}" type="audio/mp3">
+           
+          Your browser does not support the audio element.
+          </audio>
+    
+          <br>
+            <!-- <ul>
+              <li><i class="bi bi-check-circled"></i> She is a MarkCom specialist with two decades plus of experience in both corporate and public consultancies.  </li><br>
+              <li><i class="bi bi-check-circled"></i> The corporates include names like Taj Group of Hotels, Reed Exhibitions Group, Ananda in the Himalayas, World Hotel Marketing and agencies such Hill & Knowlton, O&M, Enterprise PR, Rediff PR and Perfect Relations where she has worked for blue chip companies.  </li><br>
+              <li><i class="bi bi-check-circled"></i> Her areas of expertise are Strategy and Event Management. Apart from this, Ms Nair also talks on Public Relations, Corporate Communication and Event Management and is a guest lecturer at Vedica Scholars Program for Women. Ms Nair has a MA degree in History from Delhi University. </li><br>
+            </ul> -->
+            <!-- <p>Watch our previous events in the session archive section on the website and enjoy our recent fun filled evenings.</p> -->
+    
+          <br>
+            <center>
+              <!-- <div class="col-6" style="padding-right:0;">
+                <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+    
+              </div> -->
+                    
+        </div>
+        <br><br><br><br><br><br>
+      </div>
+
+    </div>
+    
+    
+      <div  class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-4 col-4">
+            <img style="margin-bottom:15%;" src="{% static 'img/rr3.jpeg'%} " class="img-fluid" alt="" width="100%">
+
+          </div>
+          
+          <div  class="col-lg-8 col-8 pt-lg-0 content">
+            <h3 style="font-size:2em; "><b>Episode <span style="color:#ADE792;"> #5</span></b></h3>
+            <div class="price">
+              <p><span></span></p>
+            </div>
+            <p class="fst-italic">
+              Bollywood is often seen as a glamorous industry, but the reality is far more complex.
+            </p>
+            <audio controls preload="auto">
+              <source src="{% static 'img/audio/P3.mp3'%}" type="audio/mp3">
+             
+            Your browser does not support the audio element.
+            </audio>
+      
+            <br>
+              <!-- <ul>
+                <li><i class="bi bi-check-circled"></i> She is a MarkCom specialist with two decades plus of experience in both corporate and public consultancies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> The corporates include names like Taj Group of Hotels, Reed Exhibitions Group, Ananda in the Himalayas, World Hotel Marketing and agencies such Hill & Knowlton, O&M, Enterprise PR, Rediff PR and Perfect Relations where she has worked for blue chip companies.  </li><br>
+                <li><i class="bi bi-check-circled"></i> Her areas of expertise are Strategy and Event Management. Apart from this, Ms Nair also talks on Public Relations, Corporate Communication and Event Management and is a guest lecturer at Vedica Scholars Program for Women. Ms Nair has a MA degree in History from Delhi University. </li><br>
+              </ul> -->
+              <!-- <p>Watch our previous events in the session archive section on the website and enjoy our recent fun filled evenings.</p> -->
+      
+            <br>
+              <center>
+                <!-- <div class="col-6" style="padding-right:0;">
+                  <div class="Click-here1"><a href="{% url 'lobby'%}"><button style="background-color:black; " class="book-a-table-btn" type="button" name="button">Watch Now</button></a></div>
+      
+                </div> -->
+                      
+          </div>
+          <br><br><br><br><br><br>
+        </div>
+
+      </div>
+      
+  </div>      
+      
+
+
+
+
+
+
+</section><!-- End Events Section -->
+</div>
+
+
+{% endblock %}
